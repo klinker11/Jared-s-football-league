@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>NFL Survivor Picks Pool</title>
+<style>
+  :root{
+    --bg:#f4f6f8;
+    --panel:#ffffff;
+    --grid:#2d3a2d;
+    --available:#93c47d;
+    --picked:#3c78d8;
+    --picked-dark:#275aa8;
+    --text:#111;
+    --muted:#64748b;
+    --danger:#b91c1c;
+    --shadow:0 8px 24px rgba(15,23,42,.08);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+  }
+  .app{
+    max-width:1600px;
+    margin:0 auto;
+    padding:20px;
+  }
+  .toolbar{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:space-between;
+    gap:14px;
+    background:var(--panel);
+    padding:16px 18px;
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    margin-bottom:16px;
+  }
+  .title-wrap h1{
+    margin:0 0 4px;
+    font-size:24px;
+  }
+  .title-wrap p{
+    margin:0;
+    color:var(--muted);
+    font-size:14px;
+  }
+  .controls{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:10px;
+  }
+  label{
+    font-weight:700;
+    font-size:14px;
+  }
+  select, button{
+    border:1px solid #cbd5e1;
+    border-radius:9px;
+    padding:9px 11px;
+    background:#fff;
+    font-size:14px;
+  }
+  button{
+    cursor:pointer;
+    font-weight:700;
+  }
+  button:hover{background:#f8fafc}
+  .danger{color:var(--danger)}
+  .legend{
+    display:flex;
+    gap:14px;
+    align-items:center;
+    font-size:13px;
+    color:#334155;
+  }
+  .swatch{
+    display:inline-block;
+    width:18px;
+    height:18px;
+    border:1px solid #334155;
+    vertical-align:middle;
+    margin-right:5px;
+  }
+  .swatch.available{background:var(--available)}
+  .swatch.picked{background:var(--picked)}
+  .table-wrap{
+    overflow:auto;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:var(--shadow);
+  }
+  table{
+    border-collapse:collapse;
+    width:100%;
+    min-width:1150px;
+    table-layout:fixed;
+  }
+  th, td{
+    border:1px solid var(--grid);
+    padding:0;
+    text-align:left;
+  }
+  thead th{
+    position:sticky;
+    top:0;
+    z-index:3;
+    background:#fff;
+    font-size:20px;
+    padding:9px 8px;
+    min-width:150px;
+  }
+  tbody td{
+    background:var(--available);
+    height:32px;
+    font-size:14px;
+    cursor:pointer;
+    user-select:none;
+    transition:filter .12s, transform .04s;
+    position:relative;
+  }
+  tbody td:hover{filter:brightness(.96)}
+  tbody td:active{transform:scale(.995)}
+  .cell{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:8px;
+    padding:6px 8px;
+    min-height:31px;
+  }
+  td.used{
+    background:var(--picked);
+    color:#07111f;
+    cursor:not-allowed;
+  }
+  td.current{
+    background:var(--picked);
+    outline:3px solid var(--picked-dark);
+    outline-offset:-3px;
+    cursor:pointer;
+    font-weight:700;
+  }
+  .week-badge{
+    background:rgba(255,255,255,.85);
+    color:#0f172a;
+    border-radius:999px;
+    padding:2px 6px;
+    font-size:10px;
+    font-weight:700;
+    white-space:nowrap;
+  }
+  .summary{
+    display:grid;
+    grid-template-columns:repeat(7, minmax(140px, 1fr));
+    gap:10px;
+    margin:16px 0;
+  }
+  .card{
+    background:#fff;
+    border-radius:10px;
+    box-shadow:var(--shadow);
+    padding:10px 12px;
+  }
+  .card strong{display:block;margin-bottom:4px}
+  .card span{font-size:13px;color:var(--muted)}
+  .notice{
+    margin-top:12px;
+    font-size:13px;
+    color:#475569;
+  }
+  @media (max-width:900px){
+    .summary{grid-template-columns:repeat(2,1fr)}
+    .app{padding:10px}
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="toolbar">
+    <div class="title-wrap">
+      <h1>NFL Survivor Picks Pool</h1>
+      <p>Each player can use an NFL team only once during the season.</p>
+    </div>
+    <div class="controls">
+      <label for="weekSelect">Week</label>
+      <select id="weekSelect"></select>
+      <button id="exportBtn">Export</button>
+      <button id="importBtn">Import</button>
+      <button id="resetBtn" class="danger">Reset Season</button>
+      <input id="importFile" type="file" accept=".json" hidden />
+    </div>
+    <div class="legend">
+      <span><i class="swatch available"></i>Available</span>
+      <span><i class="swatch picked"></i>Picked</span>
+    </div>
+  </div>
+
+  <div id="summary" class="summary"></div>
+
+  <div class="table-wrap">
+    <table id="poolTable">
+      <thead><tr id="headerRow"></tr></thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+
+  <div class="notice">
+    Click an available team to assign it to the selected week. A team already used in another week cannot be selected again. Click the current week's blue pick to clear it. Changes save automatically in this browser.
+  </div>
+</div>
+
+<script>
+const players = ["Jared","Re","Sara","Chris","John","Caroline","Leah"];
+const teams = [
+  "Buffalo Bills","Miami Dolphins","New England Patriots","New York Jets",
+  "Baltimore Ravens","Cincinnati Bengals","Cleveland Browns","Pittsburgh Steelers",
+  "Houston Texans","Indianapolis Colts","Jacksonville Jaguars","Tennessee Titans",
+  "Denver Broncos","Kansas City Chiefs","Las Vegas Raiders","Los Angeles Chargers",
+  "Dallas Cowboys","New York Giants","Philadelphia Eagles","Washington Commanders",
+  "Chicago Bears","Detroit Lions","Green Bay Packers","Minnesota Vikings",
+  "Atlanta Falcons","Carolina Panthers","New Orleans Saints","Tampa Bay Buccaneers",
+  "Arizona Cardinals","Los Angeles Rams","San Francisco 49ers","Seattle Seahawks"
+];
+
+const STORAGE_KEY = "nfl-survivor-pool-v1";
+
+const defaultPicks = {
+  Jared:    {1:"Los Angeles Chargers"},
+  Re:       {},
+  Sara:     {1:"Pittsburgh Steelers"},
+  Chris:    {},
+  John:     {},
+  Caroline: {1:"Chicago Bears"},
+  Leah:     {1:"Philadelphia Eagles"}
+};
+
+let data = loadData();
+let currentWeek = 1;
+
+function loadData(){
+  try{
+    const saved = localStorage.getItem(STORAGE_KEY);
+    return saved ? JSON.parse(saved) : JSON.parse(JSON.stringify(defaultPicks));
+  }catch(e){
+    return JSON.parse(JSON.stringify(defaultPicks));
+  }
+}
+
+function saveData(){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+function setupWeeks(){
+  const select = document.getElementById("weekSelect");
+  for(let w=1; w<=18; w++){
+    const opt = document.createElement("option");
+    opt.value = w;
+    opt.textContent = `Week ${w}`;
+    select.appendChild(opt);
+  }
+  select.value = "1";
+  select.addEventListener("change", () => {
+    currentWeek = Number(select.value);
+    render();
+  });
+}
+
+function usedWeek(player, team){
+  const picks = data[player] || {};
+  for(const [week, pickedTeam] of Object.entries(picks)){
+    if(pickedTeam === team) return Number(week);
+  }
+  return null;
+}
+
+function setPick(player, team){
+  const used = usedWeek(player, team);
+  const currentPick = data[player]?.[currentWeek];
+
+  if(used && used !== currentWeek){
+    alert(`${player} already used ${team} in Week ${used}.`);
+    return;
+  }
+
+  if(currentPick === team){
+    delete data[player][currentWeek];
+  }else{
+    if(!data[player]) data[player] = {};
+    data[player][currentWeek] = team;
+  }
+  saveData();
+  render();
+}
+
+function render(){
+  renderHeader();
+  renderBody();
+  renderSummary();
+}
+
+function renderHeader(){
+  const row = document.getElementById("headerRow");
+  row.innerHTML = "";
+  players.forEach(player => {
+    const th = document.createElement("th");
+    th.textContent = player;
+    row.appendChild(th);
+  });
+}
+
+function renderBody(){
+  const body = document.getElementById("tableBody");
+  body.innerHTML = "";
+  teams.forEach(team => {
+    const tr = document.createElement("tr");
+    players.forEach(player => {
+      const td = document.createElement("td");
+      const used = usedWeek(player, team);
+      const isCurrent = data[player]?.[currentWeek] === team;
+
+      if(used) td.classList.add("used");
+      if(isCurrent) td.classList.add("current");
+
+      const inner = document.createElement("div");
+      inner.className = "cell";
+
+      const teamName = document.createElement("span");
+      teamName.textContent = team;
+      inner.appendChild(teamName);
+
+      if(used){
+        const badge = document.createElement("span");
+        badge.className = "week-badge";
+        badge.textContent = `W${used}`;
+        inner.appendChild(badge);
+      }
+
+      td.title = used && used !== currentWeek
+        ? `${player} used ${team} in Week ${used}`
+        : isCurrent
+          ? `Click to clear ${player}'s Week ${currentWeek} pick`
+          : `Pick ${team} for ${player} in Week ${currentWeek}`;
+
+      td.addEventListener("click", () => setPick(player, team));
+      td.appendChild(inner);
+      tr.appendChild(td);
+    });
+    body.appendChild(tr);
+  });
+}
+
+function renderSummary(){
+  const summary = document.getElementById("summary");
+  summary.innerHTML = "";
+  players.forEach(player => {
+    const card = document.createElement("div");
+    card.className = "card";
+    const pick = data[player]?.[currentWeek];
+    const usedCount = Object.keys(data[player] || {}).length;
+    card.innerHTML = `
+      <strong>${player}</strong>
+      <span>Week ${currentWeek}: ${pick || "No pick yet"}<br>${usedCount}/18 teams used</span>
+    `;
+    summary.appendChild(card);
+  });
+}
+
+document.getElementById("resetBtn").addEventListener("click", () => {
+  if(confirm("Reset the entire season back to the starting Week 1 picks shown in your sheet?")){
+    data = JSON.parse(JSON.stringify(defaultPicks));
+    saveData();
+    render();
+  }
+});
+
+document.getElementById("exportBtn").addEventListener("click", () => {
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type:"application/json"});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "nfl-survivor-picks.json";
+  a.click();
+  URL.revokeObjectURL(url);
+});
+
+document.getElementById("importBtn").addEventListener("click", () => {
+  document.getElementById("importFile").click();
+});
+
+document.getElementById("importFile").addEventListener("change", event => {
+  const file = event.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try{
+      const incoming = JSON.parse(e.target.result);
+      data = incoming;
+      saveData();
+      render();
+    }catch(err){
+      alert("That file does not appear to be a valid survivor-pool export.");
+    }
+  };
+  reader.readAsText(file);
+  event.target.value = "";
+});
+
+setupWeeks();
+render();
+</script>
+</body>
+</html>
