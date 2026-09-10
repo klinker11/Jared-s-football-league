@@ -147,6 +147,24 @@
     cursor:pointer;
     font-weight:700;
   }
+  body.week-locked tbody td{
+    cursor:not-allowed;
+  }
+  .lock-status{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-weight:700;
+    padding:7px 10px;
+    border-radius:999px;
+    font-size:13px;
+    background:#eef2ff;
+    color:#3730a3;
+  }
+  .lock-status.locked{
+    background:#fee2e2;
+    color:#991b1b;
+  }
   .week-badge{
     background:rgba(255,255,255,.85);
     color:#0f172a;
@@ -179,9 +197,191 @@
     .summary{grid-template-columns:repeat(2,1fr)}
     .app{padding:10px}
   }
+
+  .splash{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    background:linear-gradient(135deg,#111827,#1e3a8a);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+  }
+  .splash.hidden{display:none}
+  .splash-card{
+    width:min(520px,100%);
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+    box-shadow:0 24px 60px rgba(0,0,0,.3);
+    text-align:center;
+  }
+  .splash-card h1{margin:0 0 8px;font-size:30px}
+  .splash-card p{margin:0 0 22px;color:#64748b}
+  .player-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+  .player-btn{
+    padding:14px 10px;
+    font-size:17px;
+    border:1px solid #cbd5e1;
+    background:#f8fafc;
+  }
+  .player-btn:hover{background:#dbeafe;border-color:#60a5fa}
+  .signed-in{
+    font-size:13px;
+    color:#475569;
+    font-weight:700;
+  }
+  td.readonly{
+    cursor:not-allowed !important;
+    filter:saturate(.8);
+  }
+  @media(max-width:520px){
+    .player-grid{grid-template-columns:1fr}
+  }
+
+  .nav-tabs{
+    display:flex;
+    gap:8px;
+    margin-bottom:16px;
+  }
+  .nav-tab{
+    background:#fff;
+    border:1px solid #cbd5e1;
+    box-shadow:var(--shadow);
+    padding:10px 16px;
+  }
+  .nav-tab.active{
+    background:#1e3a8a;
+    color:#fff;
+    border-color:#1e3a8a;
+  }
+  .page-section.hidden{display:none}
+  .standings-panel{
+    background:#fff;
+    border-radius:12px;
+    box-shadow:var(--shadow);
+    padding:16px;
+    overflow:auto;
+  }
+  .standings-table{
+    min-width:850px;
+  }
+  .standings-table th,
+  .standings-table td{
+    padding:10px 12px;
+    border:1px solid #cbd5e1;
+    background:#fff;
+    text-align:center;
+  }
+  .standings-table th{
+    background:#f8fafc;
+    font-size:14px;
+    position:static;
+  }
+  .standings-table td:first-child,
+  .standings-table th:first-child{
+    text-align:left;
+    font-weight:700;
+  }
+  .record-good{font-weight:800}
+  .streak-win{color:#166534;font-weight:800}
+  .streak-loss{color:#991b1b;font-weight:800}
+  .streak-none{color:#64748b}
+  .streak-cards{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(260px,1fr));
+    gap:14px;
+    margin-top:16px;
+  }
+  .streak-card{
+    background:#fff;
+    border-radius:12px;
+    box-shadow:var(--shadow);
+    padding:16px;
+  }
+  .streak-card h3{margin:0 0 12px}
+  .streak-list{
+    display:grid;
+    gap:8px;
+  }
+  .streak-row{
+    display:flex;
+    justify-content:space-between;
+    gap:12px;
+    padding:8px 0;
+    border-bottom:1px solid #e2e8f0;
+  }
+  .streak-row:last-child{border-bottom:0}
+  .result-editor{
+    margin-top:16px;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:var(--shadow);
+    padding:16px;
+  }
+  .result-editor h3{margin:0 0 6px}
+  .result-editor p{margin:0 0 12px;color:#64748b;font-size:13px}
+  .result-grid{
+    display:grid;
+    grid-template-columns:repeat(7,minmax(150px,1fr));
+    gap:10px;
+  }
+  .result-box{
+    border:1px solid #cbd5e1;
+    border-radius:10px;
+    padding:10px;
+    background:#f8fafc;
+  }
+  .result-box strong{display:block;margin-bottom:5px}
+  .result-box .pick-name{
+    font-size:12px;
+    color:#64748b;
+    min-height:30px;
+    margin-bottom:7px;
+  }
+  .result-buttons{
+    display:flex;
+    gap:5px;
+  }
+  .result-buttons button{
+    flex:1;
+    padding:7px 6px;
+    font-size:12px;
+  }
+  .result-buttons .selected{
+    background:#1e3a8a;
+    color:#fff;
+    border-color:#1e3a8a;
+  }
+  .standings-week{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin-bottom:12px;
+    flex-wrap:wrap;
+  }
+  @media(max-width:900px){
+    .streak-cards{grid-template-columns:1fr}
+    .result-grid{grid-template-columns:repeat(2,minmax(140px,1fr))}
+  }
+  @media(max-width:520px){
+    .result-grid{grid-template-columns:1fr}
+  }
 </style>
 </head>
 <body>
+<div id="splash" class="splash">
+  <div class="splash-card">
+    <h1>🏈 Jared's Football League</h1>
+    <p>Who are you? Choose your name to enter the survivor pool.</p>
+    <div id="playerGrid" class="player-grid"></div>
+  </div>
+</div>
 <div class="app">
   <div class="toolbar">
     <div class="title-wrap">
@@ -189,8 +389,12 @@
       <p>Each player can use an NFL team only once during the season.</p>
     </div>
     <div class="controls">
+      <span id="signedIn" class="signed-in"></span>
+      <button id="changeUserBtn">Change Player</button>
       <label for="weekSelect">Week</label>
       <select id="weekSelect"></select>
+      <span id="lockStatus" class="lock-status">🔓 Open</span>
+      <button id="syncBtn">Sync</button>
       <button id="exportBtn">Export</button>
       <button id="importBtn">Import</button>
       <button id="resetBtn" class="danger">Reset Season</button>
@@ -202,22 +406,74 @@
     </div>
   </div>
 
-  <div id="summary" class="summary"></div>
-
-  <div class="table-wrap">
-    <table id="poolTable">
-      <thead><tr id="headerRow"></tr></thead>
-      <tbody id="tableBody"></tbody>
-    </table>
+  <div class="nav-tabs">
+    <button id="picksTab" class="nav-tab active">Picks</button>
+    <button id="standingsTab" class="nav-tab">Standings</button>
   </div>
 
-  <div class="notice">
-    Click an available team to assign it to the selected week. A team already used in another week cannot be selected again. Click the current week's blue pick to clear it. Changes save automatically in this browser.
-  </div>
+  <section id="picksPage" class="page-section">
+    <div id="summary" class="summary"></div>
+
+    <div class="table-wrap">
+      <table id="poolTable">
+        <thead><tr id="headerRow"></tr></thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+
+    <div class="notice">
+      You can view everyone's picks. Jared and Chris are commissioners and can edit any player's picks, including previous locked weeks; everyone else can only edit their own current/unlocked weeks. A team already used by a player cannot be selected again. Each week automatically locks at 3:00 AM Eastern on the following Tuesday for non-commissioners.
+    </div>
+  </section>
+
+  <section id="standingsPage" class="page-section hidden">
+    <div class="standings-panel">
+      <div class="standings-week">
+        <h2 style="margin:0">League Standings</h2>
+        <span style="color:#64748b;font-size:13px">Updates from weekly results stored in the shared Google Sheet.</span>
+      </div>
+      <table class="standings-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Player</th>
+            <th>Record</th>
+            <th>Win %</th>
+            <th>Current Streak</th>
+            <th>Longest Win Streak</th>
+            <th>Longest Loss Streak</th>
+          </tr>
+        </thead>
+        <tbody id="standingsBody"></tbody>
+      </table>
+    </div>
+
+    <div class="streak-cards">
+      <div class="streak-card">
+        <h3>🔥 Current Streaks</h3>
+        <div id="currentStreakList" class="streak-list"></div>
+      </div>
+      <div class="streak-card">
+        <h3>🏆 Longest Streaks This Season</h3>
+        <div id="longestStreakList" class="streak-list"></div>
+      </div>
+    </div>
+
+    <div id="resultEditor" class="result-editor hidden">
+      <h3>Commissioner Result Entry</h3>
+      <p>Set each player's weekly pick result. Standings and streaks recalculate automatically.</p>
+      <div class="standings-week">
+        <label for="resultWeekSelect">Results for</label>
+        <select id="resultWeekSelect"></select>
+      </div>
+      <div id="resultGrid" class="result-grid"></div>
+    </div>
+  </section>
 </div>
 
 <script>
 const players = ["Jared","Re","Sara","Chris","John","Caroline","Leah"];
+const commissioners = ["Jared","Chris"];
 const teams = [
   "Buffalo Bills","Miami Dolphins","New England Patriots","New York Jets",
   "Baltimore Ravens","Cincinnati Bengals","Cleveland Browns","Pittsburgh Steelers",
@@ -230,6 +486,7 @@ const teams = [
 ];
 
 const STORAGE_KEY = "nfl-survivor-pool-v1";
+const SHEETS_API_URL = "https://script.google.com/macros/s/AKfycbxs2w0SgFFNcZ77txdAoIiTraGNzv9VRF8VuFye0dTIMYupLP8uRnmhNFfQNBpYDQLCTg/exec";
 
 const defaultPicks = {
   Jared:    {1:"Los Angeles Chargers"},
@@ -242,9 +499,62 @@ const defaultPicks = {
 };
 
 let data = loadData();
+let results = loadResults();
 let currentWeek = 1;
+let activePlayer = sessionStorage.getItem("nfl-survivor-active-player") || null;
+let currentPage = "picks";
+let resultWeek = 1;
+
+const WEEK_LOCKS = {
+  "1": "2026-09-15T03:00:00-04:00",
+  "2": "2026-09-22T03:00:00-04:00",
+  "3": "2026-09-29T03:00:00-04:00",
+  "4": "2026-10-06T03:00:00-04:00",
+  "5": "2026-10-13T03:00:00-04:00",
+  "6": "2026-10-20T03:00:00-04:00",
+  "7": "2026-10-27T03:00:00-04:00",
+  "8": "2026-11-03T03:00:00-05:00",
+  "9": "2026-11-10T03:00:00-05:00",
+  "10": "2026-11-17T03:00:00-05:00",
+  "11": "2026-11-24T03:00:00-05:00",
+  "12": "2026-12-01T03:00:00-05:00",
+  "13": "2026-12-08T03:00:00-05:00",
+  "14": "2026-12-15T03:00:00-05:00",
+  "15": "2026-12-22T03:00:00-05:00",
+  "16": "2026-12-29T03:00:00-05:00",
+  "17": "2027-01-05T03:00:00-05:00",
+  "18": "2027-01-12T03:00:00-05:00"
+};
+
+function isWeekLocked(week){
+  return Date.now() >= new Date(WEEK_LOCKS[week]).getTime();
+}
+
+function formatLockTime(week){
+  return new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York",
+    weekday: "short",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    timeZoneName: "short"
+  }).format(new Date(WEEK_LOCKS[week]));
+}
+
+
+function loadResults(){
+  try{
+    const saved = localStorage.getItem("nfl-survivor-results-v1");
+    if(saved) return JSON.parse(saved);
+  }catch(e){}
+  const blank = {};
+  players.forEach(p => blank[p] = {});
+  return blank;
+}
 
 function loadData(){
+  // Start with local data immediately so the page can render fast.
   try{
     const saved = localStorage.getItem(STORAGE_KEY);
     return saved ? JSON.parse(saved) : JSON.parse(JSON.stringify(defaultPicks));
@@ -253,8 +563,109 @@ function loadData(){
   }
 }
 
+async function loadSharedData(){
+  if(!SHEETS_API_URL || SHEETS_API_URL.includes("PASTE_YOUR_")){
+    console.warn("Google Sheets backend URL has not been configured yet.");
+    return;
+  }
+
+  try{
+    const res = await fetch(`${SHEETS_API_URL}?action=getPicks&_=${Date.now()}`);
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+
+    const incoming = await res.json();
+    if(incoming && incoming.ok && incoming.picks){
+      data = incoming.picks;
+      results = incoming.results || {};
+
+      // Make sure every known player exists.
+      players.forEach(p => {
+        if(!data[p]) data[p] = {};
+        if(!results[p]) results[p] = {};
+      });
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      localStorage.setItem("nfl-survivor-results-v1", JSON.stringify(results));
+      render();
+    }else{
+      throw new Error(incoming?.error || "Invalid response");
+    }
+  }catch(err){
+    console.error("Could not load shared picks:", err);
+  }
+}
+
 function saveData(){
+  // Keep a local cache in case the shared backend is temporarily unavailable.
   localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+async function saveSharedPick(player, week, team){
+  if(!SHEETS_API_URL || SHEETS_API_URL.includes("PASTE_YOUR_")){
+    alert("Shared Google Sheets backend is not configured yet.");
+    return false;
+  }
+
+  try{
+    const payload = {
+      action: "setPick",
+      player,
+      week,
+      team: team || ""
+    };
+
+    const res = await fetch(SHEETS_API_URL, {
+      method: "POST",
+      headers: {"Content-Type":"text/plain;charset=utf-8"},
+      body: JSON.stringify(payload)
+    });
+
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    const result = await res.json();
+
+    if(!result.ok) throw new Error(result.error || "Save failed");
+    return true;
+  }catch(err){
+    console.error("Could not save shared pick:", err);
+    alert("The shared pick could not be saved. Your browser still has a local copy.");
+    return false;
+  }
+}
+
+
+async function saveSharedResult(player, week, result){
+  if(!isCommissioner()){
+    alert("Only Jared or Chris can enter results.");
+    return false;
+  }
+
+  try{
+    const payload = {
+      action: "setResult",
+      player,
+      week,
+      result: result || ""
+    };
+
+    const res = await fetch(SHEETS_API_URL, {
+      method: "POST",
+      headers: {"Content-Type":"text/plain;charset=utf-8"},
+      body: JSON.stringify(payload)
+    });
+
+    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+    const response = await res.json();
+    if(!response.ok) throw new Error(response.error || "Save failed");
+    return true;
+  }catch(err){
+    console.error("Could not save shared result:", err);
+    alert("The result could not be saved.");
+    return false;
+  }
+}
+
+async function syncFromServer(){
+  await loadSharedData();
 }
 
 function setupWeeks(){
@@ -265,11 +676,42 @@ function setupWeeks(){
     opt.textContent = `Week ${w}`;
     select.appendChild(opt);
   }
-  select.value = "1";
+  const now = Date.now();
+  let suggestedWeek = 18;
+  for(let w=1; w<=18; w++){
+    if(now < new Date(WEEK_LOCKS[w]).getTime()){
+      suggestedWeek = w;
+      break;
+    }
+  }
+  currentWeek = suggestedWeek;
+  select.value = String(suggestedWeek);
+
   select.addEventListener("change", () => {
     currentWeek = Number(select.value);
     render();
   });
+}
+
+function setupResultWeeks(){
+  const select = document.getElementById("resultWeekSelect");
+  if(!select || select.options.length) return;
+  for(let w=1; w<=18; w++){
+    const opt = document.createElement("option");
+    opt.value = w;
+    opt.textContent = `Week ${w}`;
+    select.appendChild(opt);
+  }
+  resultWeek = currentWeek;
+  select.value = String(resultWeek);
+  select.addEventListener("change", () => {
+    resultWeek = Number(select.value);
+    renderResultEditor();
+  });
+}
+
+function isCommissioner(){
+  return commissioners.includes(activePlayer);
 }
 
 function usedWeek(player, team){
@@ -280,7 +722,22 @@ function usedWeek(player, team){
   return null;
 }
 
-function setPick(player, team){
+async function setPick(player, team){
+  if(!activePlayer){
+    showSplash();
+    return;
+  }
+
+  if(player !== activePlayer && !isCommissioner()){
+    alert(`You are signed in as ${activePlayer}. You can only edit ${activePlayer}'s picks.`);
+    return;
+  }
+
+  if(isWeekLocked(currentWeek) && !isCommissioner()){
+    alert(`Week ${currentWeek} is locked. It closed ${formatLockTime(currentWeek)}.`);
+    return;
+  }
+
   const used = usedWeek(player, team);
   const currentPick = data[player]?.[currentWeek];
 
@@ -289,20 +746,234 @@ function setPick(player, team){
     return;
   }
 
+  let newTeam = team;
+
   if(currentPick === team){
     delete data[player][currentWeek];
+    newTeam = "";
   }else{
     if(!data[player]) data[player] = {};
     data[player][currentWeek] = team;
   }
+
   saveData();
   render();
+
+  const ok = await saveSharedPick(player, currentWeek, newTeam);
+
+  // Refresh after write so everybody converges on the same shared state.
+  if(ok) await syncFromServer();
 }
 
 function render(){
   renderHeader();
   renderBody();
   renderSummary();
+  renderLockStatus();
+  renderStandings();
+  renderResultEditor();
+  updatePageVisibility();
+}
+
+
+function getPlayerStats(player){
+  const playerResults = results[player] || {};
+  let wins = 0, losses = 0, ties = 0;
+  let currentType = null, currentCount = 0;
+  let longestWin = 0, longestLoss = 0;
+  let runType = null, runCount = 0;
+
+  for(let w=1; w<=18; w++){
+    const r = String(playerResults[w] || "").toUpperCase();
+    if(!["W","L","T"].includes(r)) continue;
+
+    if(r === "W") wins++;
+    if(r === "L") losses++;
+    if(r === "T") ties++;
+
+    if(r === runType){
+      runCount++;
+    }else{
+      runType = r;
+      runCount = 1;
+    }
+
+    if(r === "W") longestWin = Math.max(longestWin, runCount);
+    if(r === "L") longestLoss = Math.max(longestLoss, runCount);
+  }
+
+  // Current streak = consecutive W/L/T results ending with the most recent completed result.
+  for(let w=18; w>=1; w--){
+    const r = String(playerResults[w] || "").toUpperCase();
+    if(!["W","L","T"].includes(r)) continue;
+    currentType = r;
+    currentCount = 1;
+    for(let prev=w-1; prev>=1; prev--){
+      const pr = String(playerResults[prev] || "").toUpperCase();
+      if(!["W","L","T"].includes(pr)) continue;
+      if(pr === currentType) currentCount++;
+      else break;
+    }
+    break;
+  }
+
+  const games = wins + losses + ties;
+  const winPct = games ? (wins + 0.5 * ties) / games : 0;
+
+  return {
+    player, wins, losses, ties, games, winPct,
+    currentType, currentCount, longestWin, longestLoss
+  };
+}
+
+function streakLabel(type, count){
+  if(!type || !count) return "—";
+  return `${type}${count}`;
+}
+
+function streakClass(type){
+  if(type === "W") return "streak-win";
+  if(type === "L") return "streak-loss";
+  return "streak-none";
+}
+
+function renderStandings(){
+  const body = document.getElementById("standingsBody");
+  if(!body) return;
+
+  const stats = players.map(getPlayerStats).sort((a,b) =>
+    b.winPct - a.winPct ||
+    b.wins - a.wins ||
+    a.losses - b.losses ||
+    players.indexOf(a.player) - players.indexOf(b.player)
+  );
+
+  body.innerHTML = "";
+  stats.forEach((s, i) => {
+    const tr = document.createElement("tr");
+    const record = s.ties ? `${s.wins}-${s.losses}-${s.ties}` : `${s.wins}-${s.losses}`;
+    tr.innerHTML = `
+      <td>${i+1}</td>
+      <td>${s.player}</td>
+      <td class="record-good">${record}</td>
+      <td>${s.games ? (s.winPct*100).toFixed(1) + "%" : "—"}</td>
+      <td class="${streakClass(s.currentType)}">${streakLabel(s.currentType,s.currentCount)}</td>
+      <td class="streak-win">${s.longestWin ? "W"+s.longestWin : "—"}</td>
+      <td class="streak-loss">${s.longestLoss ? "L"+s.longestLoss : "—"}</td>
+    `;
+    body.appendChild(tr);
+  });
+
+  const currentList = document.getElementById("currentStreakList");
+  currentList.innerHTML = stats.map(s => `
+    <div class="streak-row">
+      <strong>${s.player}</strong>
+      <span class="${streakClass(s.currentType)}">${streakLabel(s.currentType,s.currentCount)}</span>
+    </div>
+  `).join("");
+
+  const longestList = document.getElementById("longestStreakList");
+  longestList.innerHTML = stats.map(s => {
+    let label = "—";
+    let cls = "streak-none";
+    if(s.longestWin || s.longestLoss){
+      if(s.longestWin >= s.longestLoss){
+        label = `W${s.longestWin}`;
+        cls = "streak-win";
+      }else{
+        label = `L${s.longestLoss}`;
+        cls = "streak-loss";
+      }
+    }
+    return `
+      <div class="streak-row">
+        <strong>${s.player}</strong>
+        <span class="${cls}">${label}</span>
+      </div>
+    `;
+  }).join("");
+}
+
+async function setResult(player, result){
+  if(!isCommissioner()) return;
+
+  if(!results[player]) results[player] = {};
+  if(result){
+    results[player][resultWeek] = result;
+  }else{
+    delete results[player][resultWeek];
+  }
+
+  localStorage.setItem("nfl-survivor-results-v1", JSON.stringify(results));
+  renderStandings();
+  renderResultEditor();
+
+  const ok = await saveSharedResult(player, resultWeek, result);
+  if(ok) await syncFromServer();
+}
+
+function renderResultEditor(){
+  const editor = document.getElementById("resultEditor");
+  const grid = document.getElementById("resultGrid");
+  if(!editor || !grid) return;
+
+  editor.classList.toggle("hidden", !isCommissioner());
+  if(!isCommissioner()) return;
+
+  grid.innerHTML = "";
+  players.forEach(player => {
+    const current = String(results[player]?.[resultWeek] || "").toUpperCase();
+    const pick = data[player]?.[resultWeek] || "No pick";
+
+    const box = document.createElement("div");
+    box.className = "result-box";
+    box.innerHTML = `
+      <strong>${player}</strong>
+      <div class="pick-name">Week ${resultWeek}: ${pick}</div>
+      <div class="result-buttons">
+        <button data-result="W" class="${current==="W" ? "selected" : ""}">W</button>
+        <button data-result="L" class="${current==="L" ? "selected" : ""}">L</button>
+        <button data-result="" class="${current==="" ? "selected" : ""}">Clear</button>
+      </div>
+    `;
+    box.querySelectorAll("button").forEach(btn => {
+      btn.addEventListener("click", () => setResult(player, btn.dataset.result));
+    });
+    grid.appendChild(box);
+  });
+}
+
+function updatePageVisibility(){
+  const picksPage = document.getElementById("picksPage");
+  const standingsPage = document.getElementById("standingsPage");
+  const picksTab = document.getElementById("picksTab");
+  const standingsTab = document.getElementById("standingsTab");
+  if(!picksPage) return;
+
+  const showPicks = currentPage === "picks";
+  picksPage.classList.toggle("hidden", !showPicks);
+  standingsPage.classList.toggle("hidden", showPicks);
+  picksTab.classList.toggle("active", showPicks);
+  standingsTab.classList.toggle("active", !showPicks);
+}
+
+function renderLockStatus(){
+  const locked = isWeekLocked(currentWeek);
+  const el = document.getElementById("lockStatus");
+  document.body.classList.toggle("week-locked", locked && !isCommissioner());
+
+  if(locked){
+    if(isCommissioner()){
+      el.className = "lock-status";
+      el.textContent = `🔓 Commissioner override · locked ${formatLockTime(currentWeek)}`;
+    }else{
+      el.className = "lock-status locked";
+      el.textContent = `🔒 Locked · ${formatLockTime(currentWeek)}`;
+    }
+  }else{
+    el.className = "lock-status";
+    el.textContent = `🔓 Locks ${formatLockTime(currentWeek)}`;
+  }
 }
 
 function renderHeader(){
@@ -327,6 +998,7 @@ function renderBody(){
 
       if(used) td.classList.add("used");
       if(isCurrent) td.classList.add("current");
+      if(player !== activePlayer && !isCommissioner()) td.classList.add("readonly");
 
       const inner = document.createElement("div");
       inner.className = "cell";
@@ -342,11 +1014,15 @@ function renderBody(){
         inner.appendChild(badge);
       }
 
-      td.title = used && used !== currentWeek
-        ? `${player} used ${team} in Week ${used}`
-        : isCurrent
-          ? `Click to clear ${player}'s Week ${currentWeek} pick`
-          : `Pick ${team} for ${player} in Week ${currentWeek}`;
+      td.title = (player !== activePlayer && !isCommissioner())
+        ? `${player}'s picks are read-only for you`
+        : (isWeekLocked(currentWeek) && !isCommissioner())
+          ? `Week ${currentWeek} is locked`
+          : used && used !== currentWeek
+          ? `${player} used ${team} in Week ${used}`
+          : isCurrent
+            ? `Click to clear ${player}'s Week ${currentWeek} pick`
+            : `Pick ${team} for ${player} in Week ${currentWeek}`;
 
       td.addEventListener("click", () => setPick(player, team));
       td.appendChild(inner);
@@ -372,6 +1048,22 @@ function renderSummary(){
   });
 }
 
+document.getElementById("picksTab").addEventListener("click", () => {
+  currentPage = "picks";
+  updatePageVisibility();
+});
+
+document.getElementById("standingsTab").addEventListener("click", () => {
+  currentPage = "standings";
+  renderStandings();
+  renderResultEditor();
+  updatePageVisibility();
+});
+
+document.getElementById("syncBtn").addEventListener("click", async () => {
+  await syncFromServer();
+});
+
 document.getElementById("resetBtn").addEventListener("click", () => {
   if(confirm("Reset the entire season back to the starting Week 1 picks shown in your sheet?")){
     data = JSON.parse(JSON.stringify(defaultPicks));
@@ -381,7 +1073,7 @@ document.getElementById("resetBtn").addEventListener("click", () => {
 });
 
 document.getElementById("exportBtn").addEventListener("click", () => {
-  const blob = new Blob([JSON.stringify(data, null, 2)], {type:"application/json"});
+  const blob = new Blob([JSON.stringify({picks:data, results}, null, 2)], {type:"application/json"});
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
@@ -401,8 +1093,14 @@ document.getElementById("importFile").addEventListener("change", event => {
   reader.onload = e => {
     try{
       const incoming = JSON.parse(e.target.result);
-      data = incoming;
+      if(incoming.picks){
+        data = incoming.picks;
+        results = incoming.results || results;
+      }else{
+        data = incoming;
+      }
       saveData();
+      localStorage.setItem("nfl-survivor-results-v1", JSON.stringify(results));
       render();
     }catch(err){
       alert("That file does not appear to be a valid survivor-pool export.");
@@ -412,8 +1110,65 @@ document.getElementById("importFile").addEventListener("change", event => {
   event.target.value = "";
 });
 
+
+function buildSplash(){
+  const grid = document.getElementById("playerGrid");
+  grid.innerHTML = "";
+  players.forEach(player => {
+    const btn = document.createElement("button");
+    btn.className = "player-btn";
+    btn.textContent = player;
+    btn.addEventListener("click", () => choosePlayer(player));
+    grid.appendChild(btn);
+  });
+}
+
+function choosePlayer(player){
+  activePlayer = player;
+  sessionStorage.setItem("nfl-survivor-active-player", player);
+  document.getElementById("splash").classList.add("hidden");
+  updateSignedIn();
+  render();
+}
+
+function showSplash(){
+  document.getElementById("splash").classList.remove("hidden");
+}
+
+function updateSignedIn(){
+  document.getElementById("signedIn").textContent =
+    activePlayer
+      ? `Viewing as: ${activePlayer}${isCommissioner() ? " · Commissioner" : ""}`
+      : "";
+}
+
+document.getElementById("changeUserBtn").addEventListener("click", () => {
+  sessionStorage.removeItem("nfl-survivor-active-player");
+  activePlayer = null;
+  updateSignedIn();
+  render();
+  showSplash();
+});
+
+buildSplash();
 setupWeeks();
+setupResultWeeks();
+updateSignedIn();
 render();
+
+if(activePlayer && players.includes(activePlayer)){
+  document.getElementById("splash").classList.add("hidden");
+}else{
+  activePlayer = null;
+  showSplash();
+}
+
+// Pull the shared Google Sheet state after the page starts.
+loadSharedData();
+
+// Light polling keeps other people's changes visible without a manual refresh.
+setInterval(loadSharedData, 15000);
+
 </script>
 </body>
 </html>
