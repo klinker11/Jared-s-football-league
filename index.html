@@ -397,7 +397,6 @@
       <button id="syncBtn">Sync</button>
       <button id="exportBtn">Export</button>
       <button id="importBtn">Import</button>
-      <button id="resetBtn" class="danger">Reset Season</button>
       <input id="importFile" type="file" accept=".json" hidden />
     </div>
     <div class="legend">
@@ -1062,14 +1061,6 @@ document.getElementById("standingsTab").addEventListener("click", () => {
 
 document.getElementById("syncBtn").addEventListener("click", async () => {
   await syncFromServer();
-});
-
-document.getElementById("resetBtn").addEventListener("click", () => {
-  if(confirm("Reset the entire season back to the starting Week 1 picks shown in your sheet?")){
-    data = JSON.parse(JSON.stringify(defaultPicks));
-    saveData();
-    render();
-  }
 });
 
 document.getElementById("exportBtn").addEventListener("click", () => {
