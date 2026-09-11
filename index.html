@@ -711,6 +711,270 @@
     .nav-tab{white-space:nowrap}
   }
 
+
+
+  /* -------------------- Klink's Sportsbook -------------------- */
+  .sportsbook-shell{
+    display:grid;
+    gap:16px;
+  }
+  .sportsbook-hero{
+    background:linear-gradient(135deg,#0f172a,#14532d);
+    color:#fff;
+    border-radius:16px;
+    padding:18px 20px;
+    box-shadow:var(--shadow);
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .sportsbook-hero h2{margin:0 0 5px;font-size:28px}
+  .sportsbook-hero p{margin:0;color:#d1fae5;font-size:14px}
+  .sportsbook-sync{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.24);
+    border-radius:999px;
+    padding:8px 11px;
+    font-size:12px;
+    font-weight:700;
+    max-width:100%;
+  }
+  .sportsbook-panel{
+    background:#fff;
+    border-radius:14px;
+    box-shadow:var(--shadow);
+    padding:16px;
+  }
+  .sportsbook-panel h3{margin:0 0 5px}
+  .sportsbook-sub{
+    margin:0 0 14px;
+    color:#64748b;
+    font-size:13px;
+  }
+  .sportsbook-table-wrap{overflow:auto}
+  .sportsbook-table{
+    min-width:900px;
+    table-layout:auto;
+  }
+  .sportsbook-table th,
+  .sportsbook-table td{
+    position:static;
+    background:#fff;
+    border:1px solid #e2e8f0;
+    padding:9px 10px;
+    height:auto;
+    cursor:default;
+    text-align:center;
+    font-size:13px;
+  }
+  .sportsbook-table th{
+    background:#f8fafc;
+    font-size:12px;
+    color:#475569;
+  }
+  .sportsbook-table td:nth-child(2),
+  .sportsbook-table th:nth-child(2){text-align:left;font-weight:800}
+  .money-positive{color:#166534;font-weight:800}
+  .money-negative{color:#991b1b;font-weight:800}
+  .sportsbook-main{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(280px,360px);
+    gap:16px;
+    align-items:start;
+  }
+  .bank-summary{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(90px,1fr));
+    gap:9px;
+    margin:12px 0;
+  }
+  .bank-stat{
+    border:1px solid #e2e8f0;
+    background:#f8fafc;
+    border-radius:10px;
+    padding:10px;
+  }
+  .bank-stat strong{display:block;font-size:19px}
+  .bank-stat span{font-size:11px;color:#64748b}
+  .bank-actions{
+    display:grid;
+    grid-template-columns:minmax(100px,1fr) auto;
+    gap:8px;
+    margin-top:10px;
+  }
+  .bank-actions input,
+  .bet-slip input{
+    width:100%;
+    border:1px solid #cbd5e1;
+    border-radius:9px;
+    padding:10px 11px;
+    font-size:16px;
+    background:#fff;
+  }
+  .bank-actions button{white-space:nowrap}
+  .repay-all-btn{grid-column:1/-1}
+  .loan-rules{
+    margin-top:10px;
+    color:#64748b;
+    font-size:12px;
+    line-height:1.45;
+  }
+  .odds-list{display:grid;gap:12px}
+  .game-card{
+    border:1px solid #dbe4ea;
+    border-radius:12px;
+    padding:13px;
+    background:#fff;
+  }
+  .game-card.started{opacity:.62}
+  .game-topline{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:10px;
+  }
+  .game-matchup{font-weight:800}
+  .game-time{font-size:12px;color:#64748b}
+  .market-row{
+    display:grid;
+    grid-template-columns:76px repeat(2,minmax(0,1fr));
+    gap:7px;
+    align-items:stretch;
+    margin-top:7px;
+  }
+  .market-label{
+    display:flex;
+    align-items:center;
+    font-size:11px;
+    font-weight:800;
+    color:#64748b;
+    text-transform:uppercase;
+  }
+  .line-btn{
+    min-height:44px;
+    padding:8px 9px;
+    line-height:1.2;
+    background:#f8fafc;
+    border:1px solid #cbd5e1;
+  }
+  .line-btn:hover{background:#ecfdf5;border-color:#86efac}
+  .line-btn:disabled{opacity:.45;cursor:not-allowed}
+  .line-btn strong{display:block;font-size:12px}
+  .line-btn span{display:block;font-size:11px;color:#475569;margin-top:3px}
+  .bet-slip{
+    position:sticky;
+    top:12px;
+  }
+  .bet-slip-empty{
+    border:1px dashed #cbd5e1;
+    border-radius:10px;
+    padding:18px 12px;
+    text-align:center;
+    color:#64748b;
+    font-size:13px;
+  }
+  .bet-slip-card{
+    border:1px solid #bbf7d0;
+    background:#f0fdf4;
+    border-radius:12px;
+    padding:12px;
+  }
+  .bet-slip-card.hidden,.sportsbook-hidden{display:none}
+  .bet-slip-title{font-weight:800;margin-bottom:4px}
+  .bet-slip-detail{font-size:13px;color:#475569;margin-bottom:10px}
+  .bet-payout{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
+    margin:10px 0;
+    padding:9px 0;
+    border-top:1px solid #bbf7d0;
+    border-bottom:1px solid #bbf7d0;
+    font-size:13px;
+  }
+  .bet-slip-actions{display:flex;gap:8px;flex-wrap:wrap}
+  .place-bet-btn{
+    background:#166534;
+    color:#fff;
+    border-color:#166534;
+    flex:1;
+  }
+  .place-bet-btn:hover{background:#14532d}
+  .wager-feed{display:grid;gap:9px}
+  .wager-card{
+    border:1px solid #e2e8f0;
+    border-radius:11px;
+    padding:11px 12px;
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    gap:10px;
+    align-items:center;
+  }
+  .wager-main{min-width:0}
+  .wager-player{font-weight:800}
+  .wager-desc{font-size:13px;margin-top:2px;overflow-wrap:anywhere}
+  .wager-meta{font-size:11px;color:#64748b;margin-top:4px}
+  .wager-side{display:flex;align-items:center;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+  .bet-status{
+    display:inline-flex;
+    border-radius:999px;
+    padding:5px 8px;
+    font-size:11px;
+    font-weight:800;
+    background:#f1f5f9;
+    color:#475569;
+  }
+  .bet-status.won{background:#dcfce7;color:#166534}
+  .bet-status.lost{background:#fee2e2;color:#991b1b}
+  .bet-status.push{background:#e0e7ff;color:#3730a3}
+  .fade-btn{
+    background:#fff7ed;
+    border-color:#fdba74;
+    color:#9a3412;
+  }
+  .fade-btn:hover{background:#ffedd5}
+  .fade-tag{
+    display:inline-flex;
+    margin-left:5px;
+    border-radius:999px;
+    padding:2px 6px;
+    background:#fff7ed;
+    color:#9a3412;
+    font-size:10px;
+    font-weight:800;
+  }
+  .sportsbook-empty{
+    padding:18px;
+    border:1px dashed #cbd5e1;
+    border-radius:10px;
+    color:#64748b;
+    text-align:center;
+    font-size:13px;
+  }
+  .fake-money-warning{
+    margin-top:8px;
+    font-size:11px;
+    color:#d1fae5;
+  }
+  @media(max-width:950px){
+    .sportsbook-main{grid-template-columns:1fr}
+    .bet-slip{position:static}
+  }
+  @media(max-width:560px){
+    .sportsbook-hero h2{font-size:24px}
+    .bank-summary{grid-template-columns:1fr 1fr}
+    .market-row{grid-template-columns:1fr 1fr}
+    .market-label{grid-column:1/-1;margin-top:3px}
+    .wager-card{grid-template-columns:1fr}
+    .wager-side{justify-content:flex-start}
+  }
+
 </style>
 </head>
 <body>
@@ -748,6 +1012,7 @@
     <button id="picksTab" class="nav-tab active">Picks</button>
     <button id="standingsTab" class="nav-tab">Standings</button>
     <button id="klinksTab" class="nav-tab">🎡 Klink's Corner</button>
+    <button id="sportsbookTab" class="nav-tab">💰 Klink's Sportsbook</button>
   </div>
 
   <section id="picksPage" class="page-section">
@@ -769,7 +1034,7 @@
     <div class="standings-panel">
       <div class="standings-week">
         <h2 style="margin:0">League Standings</h2>
-        <span style="color:#64748b;font-size:13px">Updates from weekly results stored in the shared Google Sheet.</span>
+        <span id="resultsSyncStatus" style="color:#64748b;font-size:13px">Automatic NFL grading will update completed picks.</span>
       </div>
       <table class="standings-table">
         <thead>
@@ -871,6 +1136,97 @@
     </div>
   </section>
 
+
+  <section id="sportsbookPage" class="page-section hidden">
+    <div class="sportsbook-shell">
+      <div class="sportsbook-hero">
+        <div>
+          <h2>💰 Klink's Sportsbook</h2>
+          <p>League-wide fake-money betting on the cached daily NFL lines.</p>
+          <div class="fake-money-warning">Entertainment only · Klink Bucks have no real-world value.</div>
+        </div>
+        <div id="sportsbookSync" class="sportsbook-sync">Waiting for sportsbook backend…</div>
+      </div>
+
+      <div class="sportsbook-panel">
+        <h3>📊 Public Balance Sheet</h3>
+        <p class="sportsbook-sub">Everybody can see everybody's cash, debt, record and fake-money performance.</p>
+        <div class="sportsbook-table-wrap">
+          <table class="sportsbook-table">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Owner</th>
+                <th>Cash</th>
+                <th>Debt</th>
+                <th>Net Worth</th>
+                <th>Bet Record</th>
+                <th>Bet P/L</th>
+                <th>Total Wagered</th>
+                <th>Interest Charged</th>
+              </tr>
+            </thead>
+            <tbody id="bankrollBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="sportsbook-main">
+        <div style="display:grid;gap:16px;min-width:0">
+          <div class="sportsbook-panel">
+            <h3 id="myBankTitle">🏦 My Klink Bucks</h3>
+            <p class="sportsbook-sub">Start with $500. Broke? Klink Financial Services is regrettably open.</p>
+            <div class="bank-summary">
+              <div class="bank-stat"><strong id="myCash">$—</strong><span>Cash</span></div>
+              <div class="bank-stat"><strong id="myDebt">$—</strong><span>Debt</span></div>
+              <div class="bank-stat"><strong id="myNetWorth">$—</strong><span>Net worth</span></div>
+            </div>
+            <div class="bank-actions">
+              <input id="borrowAmount" type="number" min="100" step="100" value="100" inputmode="decimal" aria-label="Borrow amount" />
+              <button id="borrowBtn" type="button">Borrow Fake $</button>
+              <input id="repayAmount" type="number" min="0.01" step="0.01" value="100" inputmode="decimal" aria-label="Repayment amount" />
+              <button id="repayBtn" type="button">Repay</button>
+              <button id="repayAllBtn" class="repay-all-btn" type="button">Repay as Much as Possible</button>
+            </div>
+            <div id="loanRules" class="loan-rules">Fake loans charge 10% interest each NFL week. Maximum borrowed debt before interest: $1,000.</div>
+          </div>
+
+          <div class="sportsbook-panel">
+            <h3>🏈 Current NFL Lines</h3>
+            <p class="sportsbook-sub">Consensus moneyline, spread and over/under from the daily cached snapshot. Your line locks when the wager is placed.</p>
+            <div id="oddsGames" class="odds-list"></div>
+          </div>
+        </div>
+
+        <div class="sportsbook-panel bet-slip">
+          <h3>🧾 Bet Slip</h3>
+          <p class="sportsbook-sub">Straight bets only for now.</p>
+          <div id="betSlipEmpty" class="bet-slip-empty">Select a moneyline, spread, total, or hit FADE on somebody else's open wager.</div>
+          <div id="betSlipCard" class="bet-slip-card hidden">
+            <div id="betSlipTitle" class="bet-slip-title"></div>
+            <div id="betSlipDetail" class="bet-slip-detail"></div>
+            <label for="betStake">Stake</label>
+            <input id="betStake" type="number" min="0.01" step="0.01" value="25" inputmode="decimal" />
+            <div class="bet-payout">
+              <span>Potential profit</span>
+              <strong id="betPotential">$0.00</strong>
+            </div>
+            <div class="bet-slip-actions">
+              <button id="placeBetBtn" class="place-bet-btn" type="button">Place Fake Bet</button>
+              <button id="clearBetBtn" type="button">Clear</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sportsbook-panel">
+        <h3>👀 Public Wager Feed</h3>
+        <p class="sportsbook-sub">Every wager is public. Open bets can be faded using the current opposite line.</p>
+        <div id="wagerFeed" class="wager-feed"></div>
+      </div>
+    </div>
+  </section>
+
 </div>
 
 <div id="chaosMessage" class="chaos-message" aria-live="polite">Structural integrity compromised.</div>
@@ -916,6 +1272,8 @@ let wheelTeamsSnapshot = [];
 let flavorTimer = null;
 let chaosTimer = null;
 const KLINKS_STATE_KEY = "nfl-survivor-klinks-session-v1";
+let sportsbook = {odds:[], bankrolls:{}, bets:[], config:{}, meta:{}};
+let selectedBookBet = null;
 
 const WEEK_LOCKS = {
   "1": "2026-09-15T03:00:00-04:00",
@@ -982,34 +1340,53 @@ async function loadSharedData(){
   }
 
   try{
-    const res = await fetch(`${SHEETS_API_URL}?action=getPicks&_=${Date.now()}`);
+    const res = await fetch(`${SHEETS_API_URL}?action=getState&_=${Date.now()}`);
     if(!res.ok) throw new Error(`HTTP ${res.status}`);
 
     const incoming = await res.json();
     if(incoming && incoming.ok && incoming.picks){
-      data = incoming.picks;
-      results = incoming.results || {};
-
-      // Make sure every known player exists.
-      players.forEach(p => {
-        if(!data[p]) data[p] = {};
-        if(!results[p]) results[p] = {};
-      });
-
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-      localStorage.setItem("nfl-survivor-results-v1", JSON.stringify(results));
+      applyServerState(incoming);
       render();
     }else{
       throw new Error(incoming?.error || "Invalid response");
     }
   }catch(err){
-    console.error("Could not load shared picks:", err);
+    console.error("Could not load shared league state:", err);
+    const sync = document.getElementById("sportsbookSync");
+    if(sync) sync.textContent = "⚠ Shared backend unavailable";
   }
+}
+
+function applyServerState(incoming){
+  data = incoming.picks || data;
+  results = incoming.results || results;
+  sportsbook = incoming.sportsbook || sportsbook || {odds:[], bankrolls:{}, bets:[], config:{}, meta:{}};
+
+  players.forEach(p => {
+    if(!data[p]) data[p] = {};
+    if(!results[p]) results[p] = {};
+  });
+
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  localStorage.setItem("nfl-survivor-results-v1", JSON.stringify(results));
 }
 
 function saveData(){
   // Keep a local cache in case the shared backend is temporarily unavailable.
   localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+async function postLeagueAction(payload){
+  const res = await fetch(SHEETS_API_URL, {
+    method: "POST",
+    headers: {"Content-Type":"text/plain;charset=utf-8"},
+    body: JSON.stringify(payload)
+  });
+  if(!res.ok) throw new Error(`HTTP ${res.status}`);
+  const response = await res.json();
+  if(!response.ok) throw new Error(response.error || "Request failed");
+  if(response.picks) applyServerState(response);
+  return response;
 }
 
 async function saveSharedPick(player, week, team){
@@ -1186,6 +1563,7 @@ function render(){
   renderStandings();
   renderResultEditor();
   renderKlinksCorner();
+  renderSportsbook();
   updatePageVisibility();
 }
 
@@ -1254,6 +1632,14 @@ function streakClass(type){
 function renderStandings(){
   const body = document.getElementById("standingsBody");
   if(!body) return;
+
+  const syncStatus = document.getElementById("resultsSyncStatus");
+  if(syncStatus){
+    const last = sportsbook?.meta?.lastScoresRefresh;
+    syncStatus.textContent = last
+      ? `Automatic NFL grading · last score check ${formatDateTime(last)}`
+      : "Automatic NFL grading is ready; waiting for the first score sync.";
+  }
 
   const stats = players.map(getPlayerStats).sort((a,b) =>
     b.winPct - a.winPct ||
@@ -1361,25 +1747,29 @@ function updatePageVisibility(){
   const picksPage = document.getElementById("picksPage");
   const standingsPage = document.getElementById("standingsPage");
   const klinksPage = document.getElementById("klinksPage");
+  const sportsbookPage = document.getElementById("sportsbookPage");
   const picksTab = document.getElementById("picksTab");
   const standingsTab = document.getElementById("standingsTab");
   const klinksTab = document.getElementById("klinksTab");
+  const sportsbookTab = document.getElementById("sportsbookTab");
   if(!picksPage) return;
 
   const showPicks = currentPage === "picks";
   const showStandings = currentPage === "standings";
   const showKlinks = currentPage === "klinks";
+  const showSportsbook = currentPage === "sportsbook";
 
   picksPage.classList.toggle("hidden", !showPicks);
   standingsPage.classList.toggle("hidden", !showStandings);
   klinksPage.classList.toggle("hidden", !showKlinks);
+  sportsbookPage.classList.toggle("hidden", !showSportsbook);
   picksTab.classList.toggle("active", showPicks);
   standingsTab.classList.toggle("active", showStandings);
   klinksTab.classList.toggle("active", showKlinks);
+  sportsbookTab.classList.toggle("active", showSportsbook);
 
-  if(showKlinks){
-    requestAnimationFrame(() => renderKlinksCorner());
-  }
+  if(showKlinks) requestAnimationFrame(() => renderKlinksCorner());
+  if(showSportsbook) requestAnimationFrame(() => renderSportsbook());
 }
 
 function renderLockStatus(){
@@ -1852,6 +2242,320 @@ function triggerChaos(){
 }
 
 
+
+// -------------------- Klink's Sportsbook --------------------
+
+function escapeHtml(value){
+  return String(value ?? "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+function money(value){
+  const n = Number(value);
+  return Number.isFinite(n) ? n.toLocaleString("en-US", {style:"currency",currency:"USD"}) : "$—";
+}
+
+function formatAmerican(odds){
+  const n = Number(odds);
+  if(!Number.isFinite(n)) return "—";
+  return n > 0 ? `+${Math.round(n)}` : `${Math.round(n)}`;
+}
+
+function formatPoint(point){
+  const n = Number(point);
+  if(!Number.isFinite(n)) return "—";
+  return n > 0 ? `+${n}` : `${n}`;
+}
+
+function formatDateTime(value){
+  if(!value) return "never";
+  const d = new Date(value);
+  if(Number.isNaN(d.getTime())) return String(value);
+  return new Intl.DateTimeFormat("en-US", {
+    timeZone:"America/New_York",
+    month:"short",day:"numeric",hour:"numeric",minute:"2-digit",timeZoneName:"short"
+  }).format(d);
+}
+
+function americanProfit(stake, odds){
+  const s = Number(stake), o = Number(odds);
+  if(!Number.isFinite(s) || s <= 0 || !Number.isFinite(o) || o === 0) return 0;
+  return o > 0 ? s * o / 100 : s * 100 / Math.abs(o);
+}
+
+function findOddsEvent(eventId){
+  return (sportsbook?.odds || []).find(g => g.id === eventId) || null;
+}
+
+function hasNumber(value){
+  return value !== null && value !== undefined && value !== "" && Number.isFinite(Number(value));
+}
+
+function getCurrentOffer(event, market, selection){
+  if(!event) return null;
+  if(market === "h2h"){
+    if(selection === event.awayTeam && hasNumber(event.awayML)) return {line:null,odds:Number(event.awayML)};
+    if(selection === event.homeTeam && hasNumber(event.homeML)) return {line:null,odds:Number(event.homeML)};
+  }
+  if(market === "spreads"){
+    if(selection === event.awayTeam && hasNumber(event.awaySpread) && hasNumber(event.awaySpreadOdds)) return {line:Number(event.awaySpread),odds:Number(event.awaySpreadOdds)};
+    if(selection === event.homeTeam && hasNumber(event.homeSpread) && hasNumber(event.homeSpreadOdds)) return {line:Number(event.homeSpread),odds:Number(event.homeSpreadOdds)};
+  }
+  if(market === "totals"){
+    if(selection === "Over" && hasNumber(event.total) && hasNumber(event.overOdds)) return {line:Number(event.total),odds:Number(event.overOdds)};
+    if(selection === "Under" && hasNumber(event.total) && hasNumber(event.underOdds)) return {line:Number(event.total),odds:Number(event.underOdds)};
+  }
+  return null;
+}
+
+function betDescription(market, selection, line, odds){
+  if(market === "h2h") return `${selection} ML ${formatAmerican(odds)}`;
+  if(market === "spreads") return `${selection} ${formatPoint(line)} (${formatAmerican(odds)})`;
+  return `${selection} ${line} (${formatAmerican(odds)})`;
+}
+
+function chooseBookBet(eventId, market, selection, fadeOf=null){
+  if(!activePlayer){ showSplash(); return; }
+  const event = findOddsEvent(eventId);
+  const offer = getCurrentOffer(event, market, selection);
+  if(!event || !offer){
+    alert("That line is not available in the current odds snapshot.");
+    return;
+  }
+  if(Date.now() >= new Date(event.commenceTime).getTime()){
+    alert("That game has already started.");
+    return;
+  }
+
+  selectedBookBet = {
+    eventId:event.id,
+    market,
+    selection,
+    line:offer.line,
+    odds:offer.odds,
+    awayTeam:event.awayTeam,
+    homeTeam:event.homeTeam,
+    fadeOf:fadeOf || null
+  };
+  renderBetSlip();
+  document.getElementById("betStake")?.focus();
+}
+
+function clearBetSlip(){
+  selectedBookBet = null;
+  renderBetSlip();
+}
+
+function renderBetSlip(){
+  const empty = document.getElementById("betSlipEmpty");
+  const card = document.getElementById("betSlipCard");
+  if(!empty || !card) return;
+  if(!selectedBookBet){
+    empty.classList.remove("sportsbook-hidden");
+    card.classList.add("hidden");
+    return;
+  }
+
+  empty.classList.add("sportsbook-hidden");
+  card.classList.remove("hidden");
+  const b = selectedBookBet;
+  const original = b.fadeOf ? (sportsbook.bets || []).find(x => x.id === b.fadeOf) : null;
+  document.getElementById("betSlipTitle").textContent = b.fadeOf && original
+    ? `FADE ${original.player}`
+    : `${b.awayTeam} @ ${b.homeTeam}`;
+  document.getElementById("betSlipDetail").textContent = betDescription(b.market,b.selection,b.line,b.odds);
+  updateBetPotential();
+}
+
+function updateBetPotential(){
+  const stake = Number(document.getElementById("betStake")?.value || 0);
+  const out = document.getElementById("betPotential");
+  if(out) out.textContent = money(americanProfit(stake, selectedBookBet?.odds));
+}
+
+async function placeSelectedBookBet(){
+  if(!selectedBookBet || !activePlayer) return;
+  const stake = Number(document.getElementById("betStake")?.value || 0);
+  if(!Number.isFinite(stake) || stake <= 0){ alert("Enter a valid fake-money stake."); return; }
+
+  const b = selectedBookBet;
+  const label = betDescription(b.market,b.selection,b.line,b.odds);
+  if(!confirm(`${activePlayer}: place ${money(stake)} on ${label}?`)) return;
+
+  const button = document.getElementById("placeBetBtn");
+  if(button){ button.disabled = true; button.textContent = "Placing…"; }
+  try{
+    const payload = b.fadeOf
+      ? {action:"fadeBet", player:activePlayer, betId:b.fadeOf, stake}
+      : {action:"placeBet", player:activePlayer, eventId:b.eventId, market:b.market, selection:b.selection, stake};
+    await postLeagueAction(payload);
+    selectedBookBet = null;
+    render();
+  }catch(err){
+    alert(err.message || "The fake wager could not be placed.");
+  }finally{
+    if(button){ button.disabled = false; button.textContent = "Place Fake Bet"; }
+  }
+}
+
+function beginFade(betId){
+  if(!activePlayer){ showSplash(); return; }
+  const bet = (sportsbook.bets || []).find(b => b.id === betId);
+  if(!bet) return;
+  if(bet.player === activePlayer){ alert("Fading yourself is just hedging with extra steps."); return; }
+  const event = findOddsEvent(bet.eventId);
+  if(!event){ alert("The current opposite line is no longer available."); return; }
+
+  let opposite;
+  if(bet.market === "totals") opposite = bet.selection === "Over" ? "Under" : "Over";
+  else opposite = bet.selection === event.homeTeam ? event.awayTeam : event.homeTeam;
+  chooseBookBet(event.id, bet.market, opposite, bet.id);
+}
+
+async function sportsbookMoneyAction(action, amount){
+  if(!activePlayer){ showSplash(); return; }
+  try{
+    await postLeagueAction({action,player:activePlayer,amount});
+    render();
+  }catch(err){
+    alert(err.message || "Klink Financial Services rejected the transaction.");
+  }
+}
+
+function renderSportsbook(){
+  const body = document.getElementById("bankrollBody");
+  if(!body) return;
+  const books = sportsbook?.bankrolls || {};
+  const odds = sportsbook?.odds || [];
+  const bets = sportsbook?.bets || [];
+  const meta = sportsbook?.meta || {};
+  const config = sportsbook?.config || {};
+
+  const sortedOwners = players.slice().sort((a,b) => (Number(books[b]?.netWorth || 0) - Number(books[a]?.netWorth || 0)) || players.indexOf(a)-players.indexOf(b));
+  body.innerHTML = sortedOwners.map((player,i) => {
+    const b = books[player];
+    if(!b) return `<tr><td>${i+1}</td><td>${escapeHtml(player)}</td><td colspan="7">Waiting for sportsbook setup</td></tr>`;
+    const pnlClass = Number(b.betProfit) > 0 ? "money-positive" : Number(b.betProfit) < 0 ? "money-negative" : "";
+    const netClass = Number(b.netWorth) > Number(config.startingBankroll || 500) ? "money-positive" : Number(b.netWorth) < 0 ? "money-negative" : "";
+    return `<tr>
+      <td>${i+1}</td>
+      <td>${escapeHtml(player)}</td>
+      <td>${money(b.cash)}</td>
+      <td class="${Number(b.debt)>0?'money-negative':''}">${money(b.debt)}</td>
+      <td class="${netClass}">${money(b.netWorth)}</td>
+      <td>${b.wins}-${b.losses}${b.pushes ? `-${b.pushes}` : ""} <span style="color:#64748b">(${b.open} open)</span></td>
+      <td class="${pnlClass}">${Number(b.betProfit)>0?'+':''}${money(b.betProfit)}</td>
+      <td>${money(b.totalWagered)}</td>
+      <td>${money(b.interestCharged)}</td>
+    </tr>`;
+  }).join("");
+
+  const mine = books[activePlayer];
+  document.getElementById("myBankTitle").textContent = activePlayer ? `🏦 ${activePlayer}'s Klink Bucks` : "🏦 My Klink Bucks";
+  document.getElementById("myCash").textContent = mine ? money(mine.cash) : "$—";
+  document.getElementById("myDebt").textContent = mine ? money(mine.debt) : "$—";
+  document.getElementById("myNetWorth").textContent = mine ? money(mine.netWorth) : "$—";
+  if(config.weeklyInterestRate !== undefined){
+    document.getElementById("loanRules").textContent = `Fake loans charge ${(Number(config.weeklyInterestRate)*100).toFixed(0)}% interest each NFL week. Borrow in ${money(config.borrowIncrement || 100)} increments; maximum borrowed debt before interest: ${money(config.maxBorrowedDebt || 1000)}.`;
+  }
+
+  const sync = document.getElementById("sportsbookSync");
+  if(sync){
+    sync.textContent = meta.lastOddsRefresh
+      ? `📡 Lines ${formatDateTime(meta.lastOddsRefresh)}${meta.apiCreditsRemaining !== "" ? ` · ${meta.apiCreditsRemaining} API credits left` : ""}`
+      : "⚠ No odds snapshot yet";
+  }
+
+  renderOddsGames(odds);
+  renderWagerFeed(bets);
+  renderBetSlip();
+}
+
+function renderOddsGames(odds){
+  const holder = document.getElementById("oddsGames");
+  if(!holder) return;
+  if(!odds.length){
+    holder.innerHTML = `<div class="sportsbook-empty">No cached NFL lines yet. After the new Code.gs is deployed, run <strong>setupLeagueAutomation()</strong> once in Apps Script.</div>`;
+    return;
+  }
+
+  holder.innerHTML = odds.map(g => {
+    const started = Date.now() >= new Date(g.commenceTime).getTime();
+    const dis = started ? "disabled" : "";
+    const awayML = hasNumber(g.awayML) ? formatAmerican(g.awayML) : "—";
+    const homeML = hasNumber(g.homeML) ? formatAmerican(g.homeML) : "—";
+    const awaySp = hasNumber(g.awaySpread) ? `${formatPoint(g.awaySpread)} (${formatAmerican(g.awaySpreadOdds)})` : "—";
+    const homeSp = hasNumber(g.homeSpread) ? `${formatPoint(g.homeSpread)} (${formatAmerican(g.homeSpreadOdds)})` : "—";
+    const over = hasNumber(g.total) ? `O ${g.total} (${formatAmerican(g.overOdds)})` : "—";
+    const under = hasNumber(g.total) ? `U ${g.total} (${formatAmerican(g.underOdds)})` : "—";
+    return `<div class="game-card ${started?'started':''}">
+      <div class="game-topline">
+        <div class="game-matchup">${escapeHtml(g.awayTeam)} @ ${escapeHtml(g.homeTeam)}</div>
+        <div class="game-time">${started?'Started · ':''}${escapeHtml(formatDateTime(g.commenceTime))}</div>
+      </div>
+      <div class="market-row">
+        <div class="market-label">Moneyline</div>
+        <button class="line-btn" data-event="${escapeHtml(g.id)}" data-market="h2h" data-selection="${escapeHtml(g.awayTeam)}" ${dis || awayML==='—'?'disabled':''}><strong>${escapeHtml(g.awayTeam)}</strong><span>${awayML}</span></button>
+        <button class="line-btn" data-event="${escapeHtml(g.id)}" data-market="h2h" data-selection="${escapeHtml(g.homeTeam)}" ${dis || homeML==='—'?'disabled':''}><strong>${escapeHtml(g.homeTeam)}</strong><span>${homeML}</span></button>
+      </div>
+      <div class="market-row">
+        <div class="market-label">Spread</div>
+        <button class="line-btn" data-event="${escapeHtml(g.id)}" data-market="spreads" data-selection="${escapeHtml(g.awayTeam)}" ${dis || awaySp==='—'?'disabled':''}><strong>${escapeHtml(g.awayTeam)}</strong><span>${awaySp}</span></button>
+        <button class="line-btn" data-event="${escapeHtml(g.id)}" data-market="spreads" data-selection="${escapeHtml(g.homeTeam)}" ${dis || homeSp==='—'?'disabled':''}><strong>${escapeHtml(g.homeTeam)}</strong><span>${homeSp}</span></button>
+      </div>
+      <div class="market-row">
+        <div class="market-label">Total</div>
+        <button class="line-btn" data-event="${escapeHtml(g.id)}" data-market="totals" data-selection="Over" ${dis || over==='—'?'disabled':''}><strong>Over</strong><span>${over}</span></button>
+        <button class="line-btn" data-event="${escapeHtml(g.id)}" data-market="totals" data-selection="Under" ${dis || under==='—'?'disabled':''}><strong>Under</strong><span>${under}</span></button>
+      </div>
+    </div>`;
+  }).join("");
+
+  holder.querySelectorAll(".line-btn:not(:disabled)").forEach(btn => {
+    btn.addEventListener("click", () => chooseBookBet(btn.dataset.event, btn.dataset.market, btn.dataset.selection));
+  });
+}
+
+function renderWagerFeed(bets){
+  const holder = document.getElementById("wagerFeed");
+  if(!holder) return;
+  if(!bets.length){
+    holder.innerHTML = `<div class="sportsbook-empty">No fake wagers yet. Someone has to make the first terrible financial decision.</div>`;
+    return;
+  }
+
+  holder.innerHTML = bets.map(b => {
+    const resultClass = b.status === "WON" ? "won" : b.status === "LOST" ? "lost" : b.status === "PUSH" ? "push" : "";
+    const event = findOddsEvent(b.eventId);
+    const canFade = b.status === "OPEN" && b.player !== activePlayer && event && Date.now() < new Date(event.commenceTime).getTime();
+    const fadeTag = b.fadedFrom ? `<span class="fade-tag">FADE</span>` : "";
+    const faders = bets.filter(x => x.fadedFrom === b.id).map(x => x.player);
+    const fadedBy = faders.length ? ` · Faded by ${faders.map(escapeHtml).join(", ")}` : "";
+    const pnl = b.status === "OPEN"
+      ? `To win ${money(americanProfit(b.stake,b.odds))}`
+      : `P/L ${Number(b.profit)>0?'+':''}${money(b.profit || 0)}`;
+    return `<div class="wager-card">
+      <div class="wager-main">
+        <div class="wager-player">${escapeHtml(b.player)} ${fadeTag}</div>
+        <div class="wager-desc"><strong>${money(b.stake)}</strong> · ${escapeHtml(betDescription(b.market,b.selection,b.line,b.odds))}</div>
+        <div class="wager-meta">${escapeHtml(b.awayTeam)} @ ${escapeHtml(b.homeTeam)} · ${escapeHtml(formatDateTime(b.placedAt))} · ${escapeHtml(pnl)}${fadedBy}</div>
+      </div>
+      <div class="wager-side">
+        <span class="bet-status ${resultClass}">${escapeHtml(b.status)}</span>
+        ${canFade ? `<button class="fade-btn" type="button" data-fade="${escapeHtml(b.id)}">FADE ${escapeHtml(b.player)}</button>` : ""}
+      </div>
+    </div>`;
+  }).join("");
+
+  holder.querySelectorAll("[data-fade]").forEach(btn => {
+    btn.addEventListener("click", () => beginFade(btn.dataset.fade));
+  });
+}
+
 document.getElementById("picksTab").addEventListener("click", () => {
   currentPage = "picks";
   updatePageVisibility();
@@ -1871,10 +2575,31 @@ document.getElementById("klinksTab").addEventListener("click", () => {
   updatePageVisibility();
 });
 
+document.getElementById("sportsbookTab").addEventListener("click", () => {
+  currentPage = "sportsbook";
+  renderSportsbook();
+  updatePageVisibility();
+});
+
 document.getElementById("spinWheelBtn").addEventListener("click", () => spinWheel(false));
 document.getElementById("respinBtn").addEventListener("click", () => spinWheel(true));
 document.getElementById("acceptFateBtn").addEventListener("click", acceptFate);
 document.getElementById("chaosBtn").addEventListener("click", triggerChaos);
+
+document.getElementById("betStake").addEventListener("input", updateBetPotential);
+document.getElementById("placeBetBtn").addEventListener("click", placeSelectedBookBet);
+document.getElementById("clearBetBtn").addEventListener("click", clearBetSlip);
+document.getElementById("borrowBtn").addEventListener("click", () => {
+  const amount = Number(document.getElementById("borrowAmount").value || 0);
+  if(!Number.isFinite(amount) || amount <= 0) return alert("Enter a valid amount to borrow.");
+  if(confirm(`Borrow ${money(amount)} in fake money? Interest is charged weekly.`)) sportsbookMoneyAction("borrow", amount);
+});
+document.getElementById("repayBtn").addEventListener("click", () => {
+  const amount = Number(document.getElementById("repayAmount").value || 0);
+  if(!Number.isFinite(amount) || amount <= 0) return alert("Enter a valid repayment amount.");
+  sportsbookMoneyAction("repay", amount);
+});
+document.getElementById("repayAllBtn").addEventListener("click", () => sportsbookMoneyAction("repay", "all"));
 
 document.getElementById("syncBtn").addEventListener("click", async () => {
   await syncFromServer();
