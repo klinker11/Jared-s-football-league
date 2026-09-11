@@ -372,6 +372,345 @@
   @media(max-width:520px){
     .result-grid{grid-template-columns:1fr}
   }
+
+
+  /* Klink's Corner */
+  .klinks-shell{
+    display:grid;
+    gap:18px;
+  }
+  .klinks-hero{
+    background:linear-gradient(135deg,#111827,#1e3a8a 60%,#312e81);
+    color:#fff;
+    border-radius:18px;
+    box-shadow:var(--shadow);
+    padding:22px;
+    overflow:hidden;
+    position:relative;
+  }
+  .klinks-hero::after{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    right:-80px;
+    top:-95px;
+    background:rgba(255,255,255,.08);
+    pointer-events:none;
+  }
+  .klinks-title-row{
+    display:flex;
+    justify-content:space-between;
+    gap:14px;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    position:relative;
+    z-index:1;
+  }
+  .klinks-title-row h2{
+    margin:0 0 5px;
+    font-size:30px;
+    line-height:1.1;
+  }
+  .klinks-title-row p{
+    margin:0;
+    color:#dbeafe;
+    font-size:14px;
+  }
+  .chaos-btn{
+    background:#fff;
+    color:#111827;
+    border:0;
+    min-height:42px;
+  }
+  .chaos-btn:hover{background:#f8fafc}
+  .chaos-btn:disabled{opacity:.7;cursor:not-allowed}
+
+  .klinks-grid{
+    display:grid;
+    grid-template-columns:minmax(340px,1.15fr) minmax(280px,.85fr);
+    gap:18px;
+    align-items:start;
+  }
+  .wheel-card,.graveyard-card{
+    background:#fff;
+    border-radius:16px;
+    box-shadow:var(--shadow);
+    padding:18px;
+  }
+  .wheel-card{
+    text-align:center;
+  }
+  .wheel-heading{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:10px;
+    text-align:left;
+  }
+  .wheel-heading h3,.graveyard-card h3{margin:0}
+  .wheel-odds{
+    font-size:12px;
+    color:#475569;
+    background:#f1f5f9;
+    border-radius:999px;
+    padding:6px 9px;
+    font-weight:700;
+  }
+  .wheel-stage{
+    position:relative;
+    width:min(520px,100%);
+    aspect-ratio:1/1;
+    margin:10px auto 14px;
+  }
+  #teamWheel{
+    width:100%;
+    height:100%;
+    display:block;
+    border-radius:50%;
+    box-shadow:0 12px 26px rgba(15,23,42,.16);
+    transform:rotate(0deg);
+  }
+  .wheel-pointer{
+    position:absolute;
+    left:50%;
+    top:-6px;
+    transform:translateX(-50%);
+    width:0;
+    height:0;
+    border-left:18px solid transparent;
+    border-right:18px solid transparent;
+    border-top:34px solid #111827;
+    z-index:4;
+    filter:drop-shadow(0 2px 2px rgba(0,0,0,.25));
+  }
+  .wheel-hub{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    width:62px;
+    height:62px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:#fff;
+    border:5px solid #111827;
+    font-size:28px;
+    z-index:3;
+    pointer-events:none;
+  }
+  .wheel-status{
+    min-height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:8px 10px;
+    border-radius:10px;
+    background:#f8fafc;
+    color:#334155;
+    font-weight:700;
+    margin-bottom:10px;
+  }
+  .wheel-result{
+    display:none;
+    margin:12px 0;
+    padding:16px;
+    border:2px solid #1e3a8a;
+    border-radius:14px;
+    background:#eff6ff;
+  }
+  .wheel-result.show{display:block}
+  .wheel-result .landed-label{
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.08em;
+    color:#475569;
+    text-transform:uppercase;
+  }
+  .wheel-result .landed-team{
+    margin:5px 0 6px;
+    font-size:24px;
+    font-weight:900;
+    color:#0f172a;
+  }
+  .wheel-result .landed-flavor{
+    color:#475569;
+    font-size:14px;
+  }
+  .wheel-actions{
+    display:flex;
+    justify-content:center;
+    gap:9px;
+    flex-wrap:wrap;
+  }
+  .wheel-actions button{
+    min-height:44px;
+    padding:10px 15px;
+  }
+  .spin-btn{
+    background:#1e3a8a;
+    color:#fff;
+    border-color:#1e3a8a;
+  }
+  .spin-btn:hover{background:#1e40af}
+  .accept-btn{
+    background:#166534;
+    color:#fff;
+    border-color:#166534;
+  }
+  .accept-btn:hover{background:#14532d}
+  .respin-btn{
+    background:#fff7ed;
+    color:#9a3412;
+    border-color:#fdba74;
+  }
+  .respin-btn:hover{background:#ffedd5}
+  .wheel-actions .hidden{display:none}
+
+  .klinks-side{
+    display:grid;
+    gap:14px;
+  }
+  .klinks-stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+  }
+  .klink-stat{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:10px;
+    padding:10px 8px;
+    text-align:center;
+  }
+  .klink-stat strong{
+    display:block;
+    font-size:20px;
+  }
+  .klink-stat span{
+    color:#64748b;
+    font-size:11px;
+  }
+  .spin-history{
+    margin-top:14px;
+    text-align:left;
+  }
+  .spin-history h4{margin:0 0 7px}
+  .history-chips{
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+  }
+  .history-chip{
+    border:1px solid #cbd5e1;
+    background:#fff;
+    border-radius:999px;
+    padding:5px 8px;
+    font-size:12px;
+    color:#334155;
+  }
+  .history-empty{font-size:13px;color:#64748b}
+
+  .graveyard-sub{
+    color:#64748b;
+    font-size:13px;
+    margin:5px 0 12px;
+  }
+  .graveyard-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px;
+  }
+  .tombstone{
+    position:relative;
+    border:1px solid #94a3b8;
+    border-radius:28px 28px 8px 8px;
+    background:#e2e8f0;
+    padding:15px 10px 10px;
+    text-align:center;
+    min-height:88px;
+  }
+  .tombstone .rip{
+    display:block;
+    font-size:11px;
+    letter-spacing:.08em;
+    color:#475569;
+    font-weight:900;
+  }
+  .tombstone strong{
+    display:block;
+    margin:4px 0;
+    font-size:13px;
+  }
+  .tombstone small{color:#64748b}
+  .graveyard-empty{
+    grid-column:1/-1;
+    padding:20px 8px;
+    text-align:center;
+    color:#64748b;
+    font-style:italic;
+  }
+  .klinks-footnote{
+    text-align:center;
+    color:#64748b;
+    font-size:12px;
+    margin-top:10px;
+  }
+
+  .chaos-message{
+    position:fixed;
+    left:50%;
+    top:20px;
+    transform:translateX(-50%);
+    z-index:1500;
+    background:#111827;
+    color:#fff;
+    border-radius:999px;
+    padding:10px 16px;
+    font-weight:900;
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .2s;
+  }
+  .chaos-message.show{opacity:1}
+  .app.chaos-flipped{
+    transform:rotate(180deg);
+    transition:transform .75s cubic-bezier(.2,.8,.2,1);
+  }
+  .app.chaos-restoring{
+    transform:rotate(0deg);
+    transition:transform .75s cubic-bezier(.2,.8,.2,1);
+  }
+  .fall-letter{
+    display:inline-block;
+    animation:klinkFall var(--fall-time,1.35s) cubic-bezier(.35,.02,.85,.35) forwards;
+    animation-delay:var(--fall-delay,0s);
+  }
+  @keyframes klinkFall{
+    0%{transform:translate(0,0) rotate(0deg);opacity:1}
+    70%{opacity:1}
+    100%{transform:translate(var(--fall-x,0px),145px) rotate(var(--fall-r,180deg));opacity:0}
+  }
+
+  @media(max-width:900px){
+    .klinks-grid{grid-template-columns:1fr}
+    .klinks-title-row h2{font-size:26px}
+  }
+  @media(max-width:520px){
+    .klinks-hero{padding:17px}
+    .wheel-card,.graveyard-card{padding:13px}
+    .graveyard-grid{grid-template-columns:1fr}
+    .klinks-stats{grid-template-columns:repeat(3,1fr)}
+    .wheel-result .landed-team{font-size:20px}
+    .nav-tabs{overflow-x:auto;padding-bottom:2px}
+    .nav-tab{white-space:nowrap}
+  }
+
 </style>
 </head>
 <body>
@@ -408,6 +747,7 @@
   <div class="nav-tabs">
     <button id="picksTab" class="nav-tab active">Picks</button>
     <button id="standingsTab" class="nav-tab">Standings</button>
+    <button id="klinksTab" class="nav-tab">🎡 Klink's Corner</button>
   </div>
 
   <section id="picksPage" class="page-section">
@@ -468,7 +808,72 @@
       <div id="resultGrid" class="result-grid"></div>
     </div>
   </section>
+
+  <section id="klinksPage" class="page-section hidden">
+    <div class="klinks-shell">
+      <div class="klinks-hero">
+        <div class="klinks-title-row">
+          <div>
+            <h2 id="klinksTitle"><span aria-hidden="true">🎡</span> <span id="klinksTitleText">Klink's Corner</span></h2>
+            <p id="klinksTagline">When football knowledge fails, leave it to fate.</p>
+          </div>
+          <button id="chaosBtn" class="chaos-btn" type="button">⚠ Flip the League</button>
+        </div>
+      </div>
+
+      <div class="klinks-grid">
+        <div class="wheel-card">
+          <div class="wheel-heading">
+            <h3 id="wheelWeekTitle">Week 1 Team Wheel</h3>
+            <span id="wheelOdds" class="wheel-odds">Equal odds</span>
+          </div>
+
+          <div class="wheel-stage" aria-label="Random NFL team wheel">
+            <canvas id="teamWheel" width="700" height="700"></canvas>
+            <div class="wheel-pointer" aria-hidden="true"></div>
+            <div class="wheel-hub" aria-hidden="true">🏈</div>
+          </div>
+
+          <div id="wheelStatus" class="wheel-status" aria-live="polite">Ready to abandon reason.</div>
+
+          <div id="wheelResult" class="wheel-result" aria-live="polite">
+            <div class="landed-label">The wheel has spoken</div>
+            <div id="wheelTeam" class="landed-team"></div>
+            <div id="wheelFlavor" class="landed-flavor"></div>
+          </div>
+
+          <div class="wheel-actions">
+            <button id="spinWheelBtn" class="spin-btn" type="button">🎰 SPIN THE WHEEL</button>
+            <button id="acceptFateBtn" class="accept-btn hidden" type="button">✅ Accept Fate</button>
+            <button id="respinBtn" class="respin-btn hidden" type="button">🎡 Coward's Re-Spin</button>
+          </div>
+
+          <div class="spin-history">
+            <h4>Tonight's Bad Decisions</h4>
+            <div id="spinHistory" class="history-chips"></div>
+          </div>
+          <div class="klinks-footnote">Every legal team on the wheel has exactly the same chance of being selected.</div>
+        </div>
+
+        <div class="klinks-side">
+          <div class="graveyard-card">
+            <h3>🪦 Used-Team Graveyard</h3>
+            <p class="graveyard-sub">Teams already burned by <span id="graveyardPlayer">you</span> rest here.</p>
+            <div class="klinks-stats">
+              <div class="klink-stat"><strong id="remainingCount">32</strong><span>On wheel</span></div>
+              <div class="klink-stat"><strong id="graveyardCount">0</strong><span>Buried</span></div>
+              <div class="klink-stat"><strong id="respinCount">0</strong><span>Re-spins</span></div>
+            </div>
+            <div id="graveyardGrid" class="graveyard-grid" style="margin-top:14px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </div>
+
+<div id="chaosMessage" class="chaos-message" aria-live="polite">Structural integrity compromised.</div>
 
 <script>
 const players = ["Jared","Re","Sara","Chris","John","Caroline","Leah"];
@@ -489,9 +894,9 @@ const SHEETS_API_URL = "https://script.google.com/macros/s/AKfycbxs2w0SgFFNcZ77t
 
 const defaultPicks = {
   Jared:    {1:"Los Angeles Chargers"},
-  Re:       {},
+  Re:       {1:"Detroit Lions"},
   Sara:     {1:"Pittsburgh Steelers"},
-  Chris:    {},
+  Chris:    {1:"Jacksonville Jaguars"},
   John:     {},
   Caroline: {1:"Chicago Bears"},
   Leah:     {1:"Philadelphia Eagles"}
@@ -503,6 +908,14 @@ let currentWeek = 1;
 let activePlayer = sessionStorage.getItem("nfl-survivor-active-player") || null;
 let currentPage = "picks";
 let resultWeek = 1;
+
+let wheelRotation = 0;
+let wheelSpinning = false;
+let wheelSelection = null;
+let wheelTeamsSnapshot = [];
+let flavorTimer = null;
+let chaosTimer = null;
+const KLINKS_STATE_KEY = "nfl-survivor-klinks-session-v1";
 
 const WEEK_LOCKS = {
   "1": "2026-09-15T03:00:00-04:00",
@@ -688,6 +1101,7 @@ function setupWeeks(){
 
   select.addEventListener("change", () => {
     currentWeek = Number(select.value);
+    resetWheelRound();
     render();
   });
 }
@@ -771,6 +1185,7 @@ function render(){
   renderLockStatus();
   renderStandings();
   renderResultEditor();
+  renderKlinksCorner();
   updatePageVisibility();
 }
 
@@ -945,15 +1360,26 @@ function renderResultEditor(){
 function updatePageVisibility(){
   const picksPage = document.getElementById("picksPage");
   const standingsPage = document.getElementById("standingsPage");
+  const klinksPage = document.getElementById("klinksPage");
   const picksTab = document.getElementById("picksTab");
   const standingsTab = document.getElementById("standingsTab");
+  const klinksTab = document.getElementById("klinksTab");
   if(!picksPage) return;
 
   const showPicks = currentPage === "picks";
+  const showStandings = currentPage === "standings";
+  const showKlinks = currentPage === "klinks";
+
   picksPage.classList.toggle("hidden", !showPicks);
-  standingsPage.classList.toggle("hidden", showPicks);
+  standingsPage.classList.toggle("hidden", !showStandings);
+  klinksPage.classList.toggle("hidden", !showKlinks);
   picksTab.classList.toggle("active", showPicks);
-  standingsTab.classList.toggle("active", !showPicks);
+  standingsTab.classList.toggle("active", showStandings);
+  klinksTab.classList.toggle("active", showKlinks);
+
+  if(showKlinks){
+    requestAnimationFrame(() => renderKlinksCorner());
+  }
 }
 
 function renderLockStatus(){
@@ -1047,6 +1473,385 @@ function renderSummary(){
   });
 }
 
+
+
+const teamAbbr = {
+  "Buffalo Bills":"BUF","Miami Dolphins":"MIA","New England Patriots":"NE","New York Jets":"NYJ",
+  "Baltimore Ravens":"BAL","Cincinnati Bengals":"CIN","Cleveland Browns":"CLE","Pittsburgh Steelers":"PIT",
+  "Houston Texans":"HOU","Indianapolis Colts":"IND","Jacksonville Jaguars":"JAX","Tennessee Titans":"TEN",
+  "Denver Broncos":"DEN","Kansas City Chiefs":"KC","Las Vegas Raiders":"LV","Los Angeles Chargers":"LAC",
+  "Dallas Cowboys":"DAL","New York Giants":"NYG","Philadelphia Eagles":"PHI","Washington Commanders":"WAS",
+  "Chicago Bears":"CHI","Detroit Lions":"DET","Green Bay Packers":"GB","Minnesota Vikings":"MIN",
+  "Atlanta Falcons":"ATL","Carolina Panthers":"CAR","New Orleans Saints":"NO","Tampa Bay Buccaneers":"TB",
+  "Arizona Cardinals":"ARI","Los Angeles Rams":"LAR","San Francisco 49ers":"SF","Seattle Seahawks":"SEA"
+};
+
+const wheelPalette = [
+  "#2563eb","#16a34a","#dc2626","#9333ea",
+  "#ea580c","#0891b2","#ca8a04","#db2777"
+];
+
+const spinFlavor = [
+  "Advanced analytics have been abandoned.",
+  "Consulting the football gods...",
+  "Strength of schedule is for cowards.",
+  "Removing all human judgment...",
+  "Vegas has left the chat.",
+  "The proprietary Klink algorithm is calculating...",
+  "Football knowledge: DISABLED.",
+  "The wheel accepts no responsibility for what happens next.",
+  "Common sense has been escorted from the building.",
+  "Processing vibes at an irresponsible rate..."
+];
+
+const resultFlavor = [
+  "The wheel has spoken. Appeals are denied.",
+  "A decision has been made with absolutely no film study.",
+  "Fate has filed the paperwork.",
+  "The football gods request that you stop asking questions.",
+  "This result is legally considered a strategy.",
+  "Klink's Corner stands by this selection at this time.",
+  "You came here for answers. Unfortunately, you found one.",
+  "Trust the process. Do not investigate the process.",
+  "The wheel cannot be held liable for Sunday afternoon.",
+  "Destiny has entered the group chat."
+];
+
+function getKlinksSession(){
+  try{
+    return JSON.parse(sessionStorage.getItem(KLINKS_STATE_KEY) || "{}");
+  }catch(e){
+    return {};
+  }
+}
+
+function getKlinksWeekState(){
+  if(!activePlayer) return {spins:[], respins:0};
+  const all = getKlinksSession();
+  return all?.[activePlayer]?.[String(currentWeek)] || {spins:[], respins:0};
+}
+
+function saveKlinksWeekState(state){
+  if(!activePlayer) return;
+  const all = getKlinksSession();
+  if(!all[activePlayer]) all[activePlayer] = {};
+  all[activePlayer][String(currentWeek)] = state;
+  sessionStorage.setItem(KLINKS_STATE_KEY, JSON.stringify(all));
+}
+
+function getWheelTeams(player){
+  if(!player) return [];
+  return teams.filter(team => {
+    const used = usedWeek(player, team);
+    return !used || used === currentWeek;
+  });
+}
+
+function getGraveyardEntries(player){
+  const picks = data[player] || {};
+  return Object.entries(picks)
+    .map(([week,team]) => ({week:Number(week), team}))
+    .filter(item => item.team && item.week !== currentWeek)
+    .sort((a,b) => a.week - b.week);
+}
+
+function secureRandomIndex(max){
+  if(max <= 1) return 0;
+  if(window.crypto && window.crypto.getRandomValues){
+    const range = 0x100000000;
+    const limit = Math.floor(range / max) * max;
+    const arr = new Uint32Array(1);
+    do{
+      window.crypto.getRandomValues(arr);
+    }while(arr[0] >= limit);
+    return arr[0] % max;
+  }
+  return Math.floor(Math.random() * max);
+}
+
+function randomFrom(list){
+  return list[secureRandomIndex(list.length)];
+}
+
+function drawWheel(teamList){
+  const canvas = document.getElementById("teamWheel");
+  if(!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const size = canvas.width;
+  const c = size / 2;
+  const radius = c - 12;
+  ctx.clearRect(0,0,size,size);
+
+  if(!teamList.length){
+    ctx.fillStyle = "#e2e8f0";
+    ctx.beginPath();
+    ctx.arc(c,c,radius,0,Math.PI*2);
+    ctx.fill();
+    ctx.fillStyle = "#475569";
+    ctx.font = "bold 26px Arial";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText("No teams available",c,c);
+    return;
+  }
+
+  const slice = Math.PI * 2 / teamList.length;
+  teamList.forEach((team,i) => {
+    const start = -Math.PI/2 + i*slice;
+    const end = start + slice;
+    ctx.beginPath();
+    ctx.moveTo(c,c);
+    ctx.arc(c,c,radius,start,end);
+    ctx.closePath();
+    ctx.fillStyle = wheelPalette[i % wheelPalette.length];
+    ctx.fill();
+    ctx.strokeStyle = "rgba(255,255,255,.78)";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    const mid = start + slice/2;
+    ctx.save();
+    ctx.translate(c,c);
+    ctx.rotate(mid);
+    ctx.fillStyle = "#fff";
+    ctx.font = teamList.length > 24 ? "bold 17px Arial" : "bold 20px Arial";
+    ctx.textAlign = "right";
+    ctx.textBaseline = "middle";
+    ctx.shadowColor = "rgba(0,0,0,.35)";
+    ctx.shadowBlur = 2;
+    ctx.fillText(teamAbbr[team] || team.slice(0,3).toUpperCase(), radius - 18, 0);
+    ctx.restore();
+  });
+
+  ctx.beginPath();
+  ctx.arc(c,c,radius,0,Math.PI*2);
+  ctx.strokeStyle = "#0f172a";
+  ctx.lineWidth = 8;
+  ctx.stroke();
+}
+
+function renderKlinksCorner(){
+  const canvas = document.getElementById("teamWheel");
+  if(!canvas || !activePlayer) return;
+
+  const eligible = getWheelTeams(activePlayer);
+  const graveyard = getGraveyardEntries(activePlayer);
+  const state = getKlinksWeekState();
+
+  document.getElementById("wheelWeekTitle").textContent = `Week ${currentWeek} Team Wheel`;
+  document.getElementById("wheelOdds").textContent = eligible.length
+    ? `${eligible.length} teams · ${(100/eligible.length).toFixed(2)}% each`
+    : "No teams available";
+  document.getElementById("remainingCount").textContent = eligible.length;
+  document.getElementById("graveyardCount").textContent = graveyard.length;
+  document.getElementById("respinCount").textContent = state.respins || 0;
+  document.getElementById("graveyardPlayer").textContent = activePlayer;
+
+  const history = document.getElementById("spinHistory");
+  const spins = Array.isArray(state.spins) ? state.spins : [];
+  history.innerHTML = spins.length
+    ? spins.slice(-10).map((team,i) => `<span class="history-chip">${Math.max(1,spins.length-9+i)}. ${teamAbbr[team] || team}</span>`).join("")
+    : '<span class="history-empty">No spins yet. Your dignity remains intact.</span>';
+
+  const graveyardGrid = document.getElementById("graveyardGrid");
+  graveyardGrid.innerHTML = graveyard.length
+    ? graveyard.map(item => {
+        const r = String(results[activePlayer]?.[item.week] || "").toUpperCase();
+        const resultText = r === "W" ? " · Won" : r === "L" ? " · Lost" : r === "T" ? " · Tied" : "";
+        return `<div class="tombstone"><span class="rip">R.I.P.</span><strong>${item.team}</strong><small>Week ${item.week}${resultText}</small></div>`;
+      }).join("")
+    : '<div class="graveyard-empty">The graveyard is quiet... for now.</div>';
+
+  const accept = document.getElementById("acceptFateBtn");
+  if(isWeekLocked(currentWeek) && !isCommissioner()){
+    accept.disabled = true;
+    accept.title = `Week ${currentWeek} is locked`;
+  }else{
+    accept.disabled = false;
+    accept.title = "Use this as your real weekly pick";
+  }
+
+  if(!wheelSpinning && !wheelSelection){
+    wheelTeamsSnapshot = eligible.slice();
+    drawWheel(wheelTeamsSnapshot);
+    canvas.style.transform = `rotate(${wheelRotation}deg)`;
+  }
+}
+
+function resetWheelRound(){
+  wheelSelection = null;
+  wheelSpinning = false;
+  if(flavorTimer){
+    clearInterval(flavorTimer);
+    flavorTimer = null;
+  }
+  const result = document.getElementById("wheelResult");
+  const spin = document.getElementById("spinWheelBtn");
+  const accept = document.getElementById("acceptFateBtn");
+  const respin = document.getElementById("respinBtn");
+  if(result) result.classList.remove("show");
+  if(spin) spin.classList.remove("hidden");
+  if(accept) accept.classList.add("hidden");
+  if(respin) respin.classList.add("hidden");
+  const status = document.getElementById("wheelStatus");
+  if(status) status.textContent = "Ready to abandon reason.";
+}
+
+function spinWheel(isRespin=false){
+  if(wheelSpinning || !activePlayer) return;
+  const eligible = getWheelTeams(activePlayer);
+  if(!eligible.length){
+    document.getElementById("wheelStatus").textContent = "There are no legal teams left to spin.";
+    return;
+  }
+
+  if(isRespin){
+    const state = getKlinksWeekState();
+    state.respins = (state.respins || 0) + 1;
+    saveKlinksWeekState(state);
+  }
+
+  wheelTeamsSnapshot = eligible.slice();
+  drawWheel(wheelTeamsSnapshot);
+  wheelSelection = null;
+  wheelSpinning = true;
+
+  const canvas = document.getElementById("teamWheel");
+  const status = document.getElementById("wheelStatus");
+  const result = document.getElementById("wheelResult");
+  const spinBtn = document.getElementById("spinWheelBtn");
+  const acceptBtn = document.getElementById("acceptFateBtn");
+  const respinBtn = document.getElementById("respinBtn");
+
+  result.classList.remove("show");
+  spinBtn.classList.add("hidden");
+  acceptBtn.classList.add("hidden");
+  respinBtn.classList.add("hidden");
+  status.textContent = randomFrom(spinFlavor);
+
+  if(flavorTimer) clearInterval(flavorTimer);
+  flavorTimer = setInterval(() => {
+    status.textContent = randomFrom(spinFlavor);
+  }, 650);
+
+  const winnerIndex = secureRandomIndex(wheelTeamsSnapshot.length);
+  const winner = wheelTeamsSnapshot[winnerIndex];
+  const sliceDeg = 360 / wheelTeamsSnapshot.length;
+  const targetMod = ((-(winnerIndex + 0.5) * sliceDeg) % 360 + 360) % 360;
+  const currentMod = ((wheelRotation % 360) + 360) % 360;
+  const extraTurns = 6 + secureRandomIndex(3);
+  const delta = ((targetMod - currentMod + 360) % 360) + 360 * extraTurns;
+  wheelRotation += delta;
+
+  canvas.style.transition = "transform 4.8s cubic-bezier(.12,.72,.12,1)";
+  requestAnimationFrame(() => {
+    canvas.style.transform = `rotate(${wheelRotation}deg)`;
+  });
+
+  setTimeout(() => {
+    if(flavorTimer){
+      clearInterval(flavorTimer);
+      flavorTimer = null;
+    }
+    wheelSpinning = false;
+    wheelSelection = winner;
+    status.textContent = "Fate has completed its extremely scientific analysis.";
+    document.getElementById("wheelTeam").textContent = winner;
+    document.getElementById("wheelFlavor").textContent = randomFrom(resultFlavor);
+    result.classList.add("show");
+    acceptBtn.classList.remove("hidden");
+    respinBtn.classList.remove("hidden");
+
+    const state = getKlinksWeekState();
+    if(!Array.isArray(state.spins)) state.spins = [];
+    state.spins.push(winner);
+    saveKlinksWeekState(state);
+    renderKlinksCorner();
+  }, 4900);
+}
+
+async function acceptFate(){
+  if(!wheelSelection || !activePlayer || wheelSpinning) return;
+  if(isWeekLocked(currentWeek) && !isCommissioner()){
+    alert(`Week ${currentWeek} is locked. The wheel can still entertain you, but it cannot change your pick.`);
+    return;
+  }
+
+  const selected = wheelSelection;
+  const currentPick = data[activePlayer]?.[currentWeek] || "";
+  if(currentPick === selected){
+    document.getElementById("wheelStatus").textContent = `The wheel agrees with your current pick: ${selected}. No change needed.`;
+    wheelSelection = null;
+    document.getElementById("wheelResult").classList.remove("show");
+    document.getElementById("acceptFateBtn").classList.add("hidden");
+    document.getElementById("respinBtn").classList.add("hidden");
+    document.getElementById("spinWheelBtn").classList.remove("hidden");
+    return;
+  }
+
+  if(currentPick){
+    const replace = confirm(`You currently have ${currentPick} for Week ${currentWeek}. Replace it with ${selected}?`);
+    if(!replace) return;
+  }else{
+    const confirmPick = confirm(`Accept fate and make ${selected} your Week ${currentWeek} pick?`);
+    if(!confirmPick) return;
+  }
+
+  await setPick(activePlayer, selected);
+  wheelSelection = null;
+  document.getElementById("wheelResult").classList.remove("show");
+  document.getElementById("acceptFateBtn").classList.add("hidden");
+  document.getElementById("respinBtn").classList.add("hidden");
+  document.getElementById("spinWheelBtn").classList.remove("hidden");
+  document.getElementById("wheelStatus").textContent = `${selected} has been submitted. The wheel's work here is done.`;
+  renderKlinksCorner();
+}
+
+function triggerChaos(){
+  const app = document.querySelector(".app");
+  const btn = document.getElementById("chaosBtn");
+  const message = document.getElementById("chaosMessage");
+  const title = document.getElementById("klinksTitleText");
+  if(!app || !btn || app.classList.contains("chaos-flipped")) return;
+
+  btn.disabled = true;
+  btn.textContent = "Reality is unstable...";
+  message.textContent = "Structural integrity compromised.";
+  message.classList.add("show");
+  app.classList.remove("chaos-restoring");
+  app.classList.add("chaos-flipped");
+
+  if(title){
+    const chars = Array.from("Klink's Corner");
+    title.innerHTML = chars.map((ch,i) => {
+      if(ch === " ") return " ";
+      const falls = (i % 2 === 0 || i === 5 || i === 9);
+      if(!falls) return `<span>${ch}</span>`;
+      const x = ((i % 5) - 2) * 18;
+      const r = ((i % 4) - 1.5) * 120;
+      const delay = (i % 6) * .07;
+      const time = 1.05 + (i % 4) * .12;
+      return `<span class="fall-letter" style="--fall-x:${x}px;--fall-r:${r}deg;--fall-delay:${delay}s;--fall-time:${time}s">${ch}</span>`;
+    }).join("");
+  }
+
+  if(chaosTimer) clearTimeout(chaosTimer);
+  chaosTimer = setTimeout(() => {
+    app.classList.remove("chaos-flipped");
+    app.classList.add("chaos-restoring");
+    message.textContent = "League dignity restored.";
+    if(title) title.textContent = "Klink's Corner";
+
+    setTimeout(() => {
+      app.classList.remove("chaos-restoring");
+      message.classList.remove("show");
+      btn.disabled = false;
+      btn.textContent = "⚠ Flip the League";
+    }, 800);
+  }, 4200);
+}
+
+
 document.getElementById("picksTab").addEventListener("click", () => {
   currentPage = "picks";
   updatePageVisibility();
@@ -1059,9 +1864,22 @@ document.getElementById("standingsTab").addEventListener("click", () => {
   updatePageVisibility();
 });
 
+document.getElementById("klinksTab").addEventListener("click", () => {
+  currentPage = "klinks";
+  resetWheelRound();
+  renderKlinksCorner();
+  updatePageVisibility();
+});
+
+document.getElementById("spinWheelBtn").addEventListener("click", () => spinWheel(false));
+document.getElementById("respinBtn").addEventListener("click", () => spinWheel(true));
+document.getElementById("acceptFateBtn").addEventListener("click", acceptFate);
+document.getElementById("chaosBtn").addEventListener("click", triggerChaos);
+
 document.getElementById("syncBtn").addEventListener("click", async () => {
   await syncFromServer();
 });
+
 
 document.getElementById("exportBtn").addEventListener("click", () => {
   const blob = new Blob([JSON.stringify({picks:data, results}, null, 2)], {type:"application/json"});
@@ -1115,6 +1933,7 @@ function buildSplash(){
 }
 
 function choosePlayer(player){
+  resetWheelRound();
   activePlayer = player;
   sessionStorage.setItem("nfl-survivor-active-player", player);
   document.getElementById("splash").classList.add("hidden");
